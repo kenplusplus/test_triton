@@ -1,6 +1,6 @@
 [submodule "external/ByteMLPerf"]
 	path = external/ByteMLPerf
-	url = https://github.com/bytedance/ByteMLPerf
+	url = https://github.com/kenplusplus/ByteMLPerf
 [submodule "external/FlagGems"]
 	path = external/FlagGems
 	url = https://github.com/FlagOpen/FlagGems
