@@ -33,6 +33,12 @@ cd external/ByteMLPerf/byte_micro_perf
 python launch.py --task_dir workloads/mocked_model/ --task moe_softmax_topk_triton
 ```
 
+or
+
+```
+./run.sh
+```
+
 ## Modifications
 
 - ByteMLPerf changes: <https://github.com/kenplusplus/ByteMLPerf/commits/ken-triton/>
