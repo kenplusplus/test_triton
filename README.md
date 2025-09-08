@@ -35,4 +35,19 @@ python launch.py --task_dir workloads/mocked_model/ --task moe_softmax_topk_trit
 
 ## Modifications
 
-<https://github.com/kenplusplus/ByteMLPerf/commits/ken-triton/>
+- ByteMLPerf changes: <https://github.com/kenplusplus/ByteMLPerf/commits/ken-triton/>
+- Implemention of triton: [triton_kernel](./src/triton_kernel.py)
+
+## Report
+
+- Latency (us) Comparation
+![](./report/latency-raw.png)
+
+- Memory Bandwidth Comparation
+![](./report/memory_raw.png)
+
+- Latency Reduce Percentage (%)
+![](./report/latency_reduce_ratio.png)
+
+- Memory bandwidth used Comparation
+![](./report/memory_used_ratio.png)
