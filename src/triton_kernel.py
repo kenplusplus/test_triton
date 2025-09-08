@@ -16,28 +16,36 @@ def moe_softmax_topk_pre_softmax_kernel(
     if pid >= batch_size:
         return
 
-    # Offsets for the current batch
+    # Compute memory offsets for the current batch element
+    # gating_offset: starting address for the row in gating_output
+    # experts_offset: starting address for the row in selected_experts
+    # weights_offset: starting address for the row in moe_weights
     gating_offset = pid * stride_gating_batch
     experts_offset = pid * stride_experts_batch
     weights_offset = pid * stride_weights_batch
 
-    # Load gating output for this batch, ensuring block size alignment
+    # Load the gating output for this batch element (one row of shape [num_experts])
+    # Use BLOCK_SIZE for the range to ensure compile-time constant size
+    # Mask ensures we only load valid indices (up to num_experts) and pad with 0.0 for safety
     offsets = gating_offset + tl.arange(0, BLOCK_SIZE)
     mask = tl.arange(0, BLOCK_SIZE) < num_experts
     gating = tl.load(gating_output_ptr + offsets, mask=mask, other=0.0)
 
-    # Compute softmax
+    # Compute softmax over the num_experts dimension
+    # Subtract max for numerical stability to prevent overflow in exp
     max_val = tl.max(gating, axis=0)
     exp_gating = tl.exp(gating - max_val)
     sum_exp = tl.sum(exp_gating, axis=0)
     softmax_output = exp_gating / sum_exp
 
-    # Find top-k values and indices
+    # Find top-k values and indices from softmax_output
+    # Initialize arrays for top-k values and indices
     values = softmax_output
     indices = tl.arange(0, BLOCK_SIZE)
     topk_values = tl.zeros([topk], dtype=tl.float32)
     topk_indices = tl.zeros([topk], dtype=tl.int32)
 
+    # Iteratively find the top-k values and indices
     for k in range(topk):
         # Find max value and index
         max_val = tl.max(values, axis=0)
