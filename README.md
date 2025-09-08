@@ -25,3 +25,14 @@
     ```
 - Torch: ```pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu129```
 - Triton: ```pip install triton```
+
+## Run
+
+```
+cd external/ByteMLPerf/byte_micro_perf
+python launch.py --task_dir workloads/mocked_model/ --task moe_softmax_topk_triton
+```
+
+## Modifications
+
+<https://github.com/kenplusplus/ByteMLPerf/commits/ken-triton/>
