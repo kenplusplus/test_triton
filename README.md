@@ -46,6 +46,8 @@ or
 
 ## Report
 
+Result summary is at [result.xlsx](./report/result.xlsx)
+
 - Latency (us) Comparation
 ![](./report/latency-raw.png)
 
