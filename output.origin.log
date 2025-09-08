@@ -1,0 +1,3676 @@
+2025-09-08 14:31:42.088 launch.py:235 [INFO]: ******************* Hardware: *****************
+2025-09-08 14:31:42.088 launch.py:236 [INFO]: GPU
+
+2025-09-08 14:31:42.088 launch.py:253 [INFO]: ******************* Tasks: *****************
+2025-09-08 14:31:42.088 launch.py:254 [INFO]: ['moe_softmax_topk']
+
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+
+====================================================================================================
+1: moe_softmax_topk
+====================================================================================================
++----------------------+--------------------------------------------------------+
+| config               | value                                                  |
++----------------------+--------------------------------------------------------+
+| backend              | GPU                                                    |
+| op_name              | moe_softmax_topk                                       |
+| test_mode            | single                                                 |
+| op_cls_mapping       | {'torch': <class 'core.ops.llm_ops.MoeSoftmaxTopkOp'>} |
+| node_rank            | 0 / 1                                                  |
+| numa_rank            | 0 / 1                                                  |
+| process_rank         | 0 / 1                                                  |
+| avail_devices        | [0]                                                    |
+| ori_target_devices   | [0]                                                    |
+| total_target_devices | [0]                                                    |
+| target_devices       | [0]                                                    |
+| all_node_devices     | [0]                                                    |
+| device_num_per_numa  | 1                                                      |
+| test_cases           | 280                                                    |
+|                      |                                                        |
+| torch                | 2.8.0+cu129                                            |
+| torch_cuda           | 12.9                                                   |
+| driver               | 580.82.07                                              |
++----------------------+--------------------------------------------------------+
+true_world_size: 1, true_rank: 0, true_device_index: 0
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 32, "num_experts": 64, "topk": 4, "index": 0}
+{
+    "latency(us)": 14.066,
+    "read_bytes(B)": 8192,
+    "write_bytes(B)": 1024,
+    "io_bytes(B)": 9216,
+    "mem_bw(GB/s)": 0.655,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 40, "num_experts": 64, "topk": 4, "index": 1}
+{
+    "latency(us)": 14.746,
+    "read_bytes(B)": 10240,
+    "write_bytes(B)": 1280,
+    "io_bytes(B)": 11520,
+    "mem_bw(GB/s)": 0.781,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 48, "num_experts": 64, "topk": 4, "index": 2}
+{
+    "latency(us)": 15.076,
+    "read_bytes(B)": 12288,
+    "write_bytes(B)": 1536,
+    "io_bytes(B)": 13824,
+    "mem_bw(GB/s)": 0.917,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 56, "num_experts": 64, "topk": 4, "index": 3}
+{
+    "latency(us)": 14.718,
+    "read_bytes(B)": 14336,
+    "write_bytes(B)": 1792,
+    "io_bytes(B)": 16128,
+    "mem_bw(GB/s)": 1.096,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 64, "num_experts": 64, "topk": 4, "index": 4}
+{
+    "latency(us)": 14.706,
+    "read_bytes(B)": 16384,
+    "write_bytes(B)": 2048,
+    "io_bytes(B)": 18432,
+    "mem_bw(GB/s)": 1.253,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 72, "num_experts": 64, "topk": 4, "index": 5}
+{
+    "latency(us)": 15.5,
+    "read_bytes(B)": 18432,
+    "write_bytes(B)": 2304,
+    "io_bytes(B)": 20736,
+    "mem_bw(GB/s)": 1.338,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 80, "num_experts": 64, "topk": 4, "index": 6}
+{
+    "latency(us)": 16.048,
+    "read_bytes(B)": 20480,
+    "write_bytes(B)": 2560,
+    "io_bytes(B)": 23040,
+    "mem_bw(GB/s)": 1.436,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 88, "num_experts": 64, "topk": 4, "index": 7}
+{
+    "latency(us)": 16.516,
+    "read_bytes(B)": 22528,
+    "write_bytes(B)": 2816,
+    "io_bytes(B)": 25344,
+    "mem_bw(GB/s)": 1.534,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 96, "num_experts": 64, "topk": 4, "index": 8}
+{
+    "latency(us)": 15.552,
+    "read_bytes(B)": 24576,
+    "write_bytes(B)": 3072,
+    "io_bytes(B)": 27648,
+    "mem_bw(GB/s)": 1.778,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 104, "num_experts": 64, "topk": 4, "index": 9}
+{
+    "latency(us)": 17.29,
+    "read_bytes(B)": 26624,
+    "write_bytes(B)": 3328,
+    "io_bytes(B)": 29952,
+    "mem_bw(GB/s)": 1.732,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 112, "num_experts": 64, "topk": 4, "index": 10}
+{
+    "latency(us)": 16.496,
+    "read_bytes(B)": 28672,
+    "write_bytes(B)": 3584,
+    "io_bytes(B)": 32256,
+    "mem_bw(GB/s)": 1.955,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 120, "num_experts": 64, "topk": 4, "index": 11}
+{
+    "latency(us)": 16.078,
+    "read_bytes(B)": 30720,
+    "write_bytes(B)": 3840,
+    "io_bytes(B)": 34560,
+    "mem_bw(GB/s)": 2.149,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 128, "num_experts": 64, "topk": 4, "index": 12}
+{
+    "latency(us)": 16.566,
+    "read_bytes(B)": 32768,
+    "write_bytes(B)": 4096,
+    "io_bytes(B)": 36864,
+    "mem_bw(GB/s)": 2.225,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 144, "num_experts": 64, "topk": 4, "index": 13}
+{
+    "latency(us)": 16.482,
+    "read_bytes(B)": 36864,
+    "write_bytes(B)": 4608,
+    "io_bytes(B)": 41472,
+    "mem_bw(GB/s)": 2.516,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 160, "num_experts": 64, "topk": 4, "index": 14}
+{
+    "latency(us)": 16.426,
+    "read_bytes(B)": 40960,
+    "write_bytes(B)": 5120,
+    "io_bytes(B)": 46080,
+    "mem_bw(GB/s)": 2.805,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 176, "num_experts": 64, "topk": 4, "index": 15}
+{
+    "latency(us)": 16.79,
+    "read_bytes(B)": 45056,
+    "write_bytes(B)": 5632,
+    "io_bytes(B)": 50688,
+    "mem_bw(GB/s)": 3.019,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 192, "num_experts": 64, "topk": 4, "index": 16}
+{
+    "latency(us)": 16.872,
+    "read_bytes(B)": 49152,
+    "write_bytes(B)": 6144,
+    "io_bytes(B)": 55296,
+    "mem_bw(GB/s)": 3.277,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 208, "num_experts": 64, "topk": 4, "index": 17}
+{
+    "latency(us)": 17.17,
+    "read_bytes(B)": 53248,
+    "write_bytes(B)": 6656,
+    "io_bytes(B)": 59904,
+    "mem_bw(GB/s)": 3.489,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 224, "num_experts": 64, "topk": 4, "index": 18}
+{
+    "latency(us)": 17.258,
+    "read_bytes(B)": 57344,
+    "write_bytes(B)": 7168,
+    "io_bytes(B)": 64512,
+    "mem_bw(GB/s)": 3.738,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 240, "num_experts": 64, "topk": 4, "index": 19}
+{
+    "latency(us)": 17.643,
+    "read_bytes(B)": 61440,
+    "write_bytes(B)": 7680,
+    "io_bytes(B)": 69120,
+    "mem_bw(GB/s)": 3.918,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 256, "num_experts": 64, "topk": 4, "index": 20}
+{
+    "latency(us)": 19.338,
+    "read_bytes(B)": 65536,
+    "write_bytes(B)": 8192,
+    "io_bytes(B)": 73728,
+    "mem_bw(GB/s)": 3.812,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 288, "num_experts": 64, "topk": 4, "index": 21}
+{
+    "latency(us)": 18.82,
+    "read_bytes(B)": 73728,
+    "write_bytes(B)": 9216,
+    "io_bytes(B)": 82944,
+    "mem_bw(GB/s)": 4.407,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 320, "num_experts": 64, "topk": 4, "index": 22}
+{
+    "latency(us)": 18.932,
+    "read_bytes(B)": 81920,
+    "write_bytes(B)": 10240,
+    "io_bytes(B)": 92160,
+    "mem_bw(GB/s)": 4.868,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 352, "num_experts": 64, "topk": 4, "index": 23}
+{
+    "latency(us)": 19.45,
+    "read_bytes(B)": 90112,
+    "write_bytes(B)": 11264,
+    "io_bytes(B)": 101376,
+    "mem_bw(GB/s)": 5.212,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 384, "num_experts": 64, "topk": 4, "index": 24}
+{
+    "latency(us)": 19.66,
+    "read_bytes(B)": 98304,
+    "write_bytes(B)": 12288,
+    "io_bytes(B)": 110592,
+    "mem_bw(GB/s)": 5.625,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 416, "num_experts": 64, "topk": 4, "index": 25}
+{
+    "latency(us)": 20.528,
+    "read_bytes(B)": 106496,
+    "write_bytes(B)": 13312,
+    "io_bytes(B)": 119808,
+    "mem_bw(GB/s)": 5.836,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 448, "num_experts": 64, "topk": 4, "index": 26}
+{
+    "latency(us)": 20.978,
+    "read_bytes(B)": 114688,
+    "write_bytes(B)": 14336,
+    "io_bytes(B)": 129024,
+    "mem_bw(GB/s)": 6.15,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 480, "num_experts": 64, "topk": 4, "index": 27}
+{
+    "latency(us)": 21.998,
+    "read_bytes(B)": 122880,
+    "write_bytes(B)": 15360,
+    "io_bytes(B)": 138240,
+    "mem_bw(GB/s)": 6.284,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 512, "num_experts": 64, "topk": 4, "index": 28}
+{
+    "latency(us)": 23.098,
+    "read_bytes(B)": 131072,
+    "write_bytes(B)": 16384,
+    "io_bytes(B)": 147456,
+    "mem_bw(GB/s)": 6.384,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 640, "num_experts": 64, "topk": 4, "index": 29}
+{
+    "latency(us)": 24.682,
+    "read_bytes(B)": 163840,
+    "write_bytes(B)": 20480,
+    "io_bytes(B)": 184320,
+    "mem_bw(GB/s)": 7.468,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 768, "num_experts": 64, "topk": 4, "index": 30}
+{
+    "latency(us)": 27.012,
+    "read_bytes(B)": 196608,
+    "write_bytes(B)": 24576,
+    "io_bytes(B)": 221184,
+    "mem_bw(GB/s)": 8.188,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 896, "num_experts": 64, "topk": 4, "index": 31}
+{
+    "latency(us)": 28.986,
+    "read_bytes(B)": 229376,
+    "write_bytes(B)": 28672,
+    "io_bytes(B)": 258048,
+    "mem_bw(GB/s)": 8.902,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1024, "num_experts": 64, "topk": 4, "index": 32}
+{
+    "latency(us)": 31.502,
+    "read_bytes(B)": 262144,
+    "write_bytes(B)": 32768,
+    "io_bytes(B)": 294912,
+    "mem_bw(GB/s)": 9.362,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1152, "num_experts": 64, "topk": 4, "index": 33}
+{
+    "latency(us)": 33.603,
+    "read_bytes(B)": 294912,
+    "write_bytes(B)": 36864,
+    "io_bytes(B)": 331776,
+    "mem_bw(GB/s)": 9.874,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1280, "num_experts": 64, "topk": 4, "index": 34}
+{
+    "latency(us)": 36.948,
+    "read_bytes(B)": 327680,
+    "write_bytes(B)": 40960,
+    "io_bytes(B)": 368640,
+    "mem_bw(GB/s)": 9.977,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1408, "num_experts": 64, "topk": 4, "index": 35}
+{
+    "latency(us)": 38.948,
+    "read_bytes(B)": 360448,
+    "write_bytes(B)": 45056,
+    "io_bytes(B)": 405504,
+    "mem_bw(GB/s)": 10.411,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1536, "num_experts": 64, "topk": 4, "index": 36}
+{
+    "latency(us)": 41.148,
+    "read_bytes(B)": 393216,
+    "write_bytes(B)": 49152,
+    "io_bytes(B)": 442368,
+    "mem_bw(GB/s)": 10.751,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1664, "num_experts": 64, "topk": 4, "index": 37}
+{
+    "latency(us)": 44.075,
+    "read_bytes(B)": 425984,
+    "write_bytes(B)": 53248,
+    "io_bytes(B)": 479232,
+    "mem_bw(GB/s)": 10.873,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1792, "num_experts": 64, "topk": 4, "index": 38}
+{
+    "latency(us)": 46.182,
+    "read_bytes(B)": 458752,
+    "write_bytes(B)": 57344,
+    "io_bytes(B)": 516096,
+    "mem_bw(GB/s)": 11.175,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1920, "num_experts": 64, "topk": 4, "index": 39}
+{
+    "latency(us)": 50.094,
+    "read_bytes(B)": 491520,
+    "write_bytes(B)": 61440,
+    "io_bytes(B)": 552960,
+    "mem_bw(GB/s)": 11.038,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2048, "num_experts": 64, "topk": 4, "index": 40}
+{
+    "latency(us)": 51.506,
+    "read_bytes(B)": 524288,
+    "write_bytes(B)": 65536,
+    "io_bytes(B)": 589824,
+    "mem_bw(GB/s)": 11.452,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2176, "num_experts": 64, "topk": 4, "index": 41}
+{
+    "latency(us)": 54.394,
+    "read_bytes(B)": 557056,
+    "write_bytes(B)": 69632,
+    "io_bytes(B)": 626688,
+    "mem_bw(GB/s)": 11.521,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2304, "num_experts": 64, "topk": 4, "index": 42}
+{
+    "latency(us)": 56.246,
+    "read_bytes(B)": 589824,
+    "write_bytes(B)": 73728,
+    "io_bytes(B)": 663552,
+    "mem_bw(GB/s)": 11.797,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2432, "num_experts": 64, "topk": 4, "index": 43}
+{
+    "latency(us)": 58.205,
+    "read_bytes(B)": 622592,
+    "write_bytes(B)": 77824,
+    "io_bytes(B)": 700416,
+    "mem_bw(GB/s)": 12.034,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2560, "num_experts": 64, "topk": 4, "index": 44}
+{
+    "latency(us)": 60.235,
+    "read_bytes(B)": 655360,
+    "write_bytes(B)": 81920,
+    "io_bytes(B)": 737280,
+    "mem_bw(GB/s)": 12.24,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2688, "num_experts": 64, "topk": 4, "index": 45}
+{
+    "latency(us)": 61.812,
+    "read_bytes(B)": 688128,
+    "write_bytes(B)": 86016,
+    "io_bytes(B)": 774144,
+    "mem_bw(GB/s)": 12.524,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2816, "num_experts": 64, "topk": 4, "index": 46}
+{
+    "latency(us)": 65.524,
+    "read_bytes(B)": 720896,
+    "write_bytes(B)": 90112,
+    "io_bytes(B)": 811008,
+    "mem_bw(GB/s)": 12.377,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2944, "num_experts": 64, "topk": 4, "index": 47}
+{
+    "latency(us)": 67.068,
+    "read_bytes(B)": 753664,
+    "write_bytes(B)": 94208,
+    "io_bytes(B)": 847872,
+    "mem_bw(GB/s)": 12.642,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3072, "num_experts": 64, "topk": 4, "index": 48}
+{
+    "latency(us)": 68.905,
+    "read_bytes(B)": 786432,
+    "write_bytes(B)": 98304,
+    "io_bytes(B)": 884736,
+    "mem_bw(GB/s)": 12.84,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3200, "num_experts": 64, "topk": 4, "index": 49}
+{
+    "latency(us)": 72.523,
+    "read_bytes(B)": 819200,
+    "write_bytes(B)": 102400,
+    "io_bytes(B)": 921600,
+    "mem_bw(GB/s)": 12.708,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3328, "num_experts": 64, "topk": 4, "index": 50}
+{
+    "latency(us)": 74.005,
+    "read_bytes(B)": 851968,
+    "write_bytes(B)": 106496,
+    "io_bytes(B)": 958464,
+    "mem_bw(GB/s)": 12.951,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3456, "num_experts": 64, "topk": 4, "index": 51}
+{
+    "latency(us)": 76.074,
+    "read_bytes(B)": 884736,
+    "write_bytes(B)": 110592,
+    "io_bytes(B)": 995328,
+    "mem_bw(GB/s)": 13.084,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3584, "num_experts": 64, "topk": 4, "index": 52}
+{
+    "latency(us)": 78.434,
+    "read_bytes(B)": 917504,
+    "write_bytes(B)": 114688,
+    "io_bytes(B)": 1032192,
+    "mem_bw(GB/s)": 13.16,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3712, "num_experts": 64, "topk": 4, "index": 53}
+{
+    "latency(us)": 81.577,
+    "read_bytes(B)": 950272,
+    "write_bytes(B)": 118784,
+    "io_bytes(B)": 1069056,
+    "mem_bw(GB/s)": 13.105,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3840, "num_experts": 64, "topk": 4, "index": 54}
+{
+    "latency(us)": 83.241,
+    "read_bytes(B)": 983040,
+    "write_bytes(B)": 122880,
+    "io_bytes(B)": 1105920,
+    "mem_bw(GB/s)": 13.286,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3968, "num_experts": 64, "topk": 4, "index": 55}
+{
+    "latency(us)": 85.697,
+    "read_bytes(B)": 1015808,
+    "write_bytes(B)": 126976,
+    "io_bytes(B)": 1142784,
+    "mem_bw(GB/s)": 13.335,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 4096, "num_experts": 64, "topk": 4, "index": 56}
+{
+    "latency(us)": 88.927,
+    "read_bytes(B)": 1048576,
+    "write_bytes(B)": 131072,
+    "io_bytes(B)": 1179648,
+    "mem_bw(GB/s)": 13.265,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 6144, "num_experts": 64, "topk": 4, "index": 57}
+{
+    "latency(us)": 128.335,
+    "read_bytes(B)": 1572864,
+    "write_bytes(B)": 196608,
+    "io_bytes(B)": 1769472,
+    "mem_bw(GB/s)": 13.788,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 8192, "num_experts": 64, "topk": 4, "index": 58}
+{
+    "latency(us)": 167.211,
+    "read_bytes(B)": 2097152,
+    "write_bytes(B)": 262144,
+    "io_bytes(B)": 2359296,
+    "mem_bw(GB/s)": 14.11,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 10240, "num_experts": 64, "topk": 4, "index": 59}
+{
+    "latency(us)": 205.905,
+    "read_bytes(B)": 2621440,
+    "write_bytes(B)": 327680,
+    "io_bytes(B)": 2949120,
+    "mem_bw(GB/s)": 14.323,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 12288, "num_experts": 64, "topk": 4, "index": 60}
+{
+    "latency(us)": 246.61,
+    "read_bytes(B)": 3145728,
+    "write_bytes(B)": 393216,
+    "io_bytes(B)": 3538944,
+    "mem_bw(GB/s)": 14.35,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 14336, "num_experts": 64, "topk": 4, "index": 61}
+{
+    "latency(us)": 284.315,
+    "read_bytes(B)": 3670016,
+    "write_bytes(B)": 458752,
+    "io_bytes(B)": 4128768,
+    "mem_bw(GB/s)": 14.522,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 16384, "num_experts": 64, "topk": 4, "index": 62}
+{
+    "latency(us)": 326.335,
+    "read_bytes(B)": 4194304,
+    "write_bytes(B)": 524288,
+    "io_bytes(B)": 4718592,
+    "mem_bw(GB/s)": 14.459,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 18432, "num_experts": 64, "topk": 4, "index": 63}
+{
+    "latency(us)": 363.893,
+    "read_bytes(B)": 4718592,
+    "write_bytes(B)": 589824,
+    "io_bytes(B)": 5308416,
+    "mem_bw(GB/s)": 14.588,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 20480, "num_experts": 64, "topk": 4, "index": 64}
+{
+    "latency(us)": 401.315,
+    "read_bytes(B)": 5242880,
+    "write_bytes(B)": 655360,
+    "io_bytes(B)": 5898240,
+    "mem_bw(GB/s)": 14.697,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 22528, "num_experts": 64, "topk": 4, "index": 65}
+{
+    "latency(us)": 441.475,
+    "read_bytes(B)": 5767168,
+    "write_bytes(B)": 720896,
+    "io_bytes(B)": 6488064,
+    "mem_bw(GB/s)": 14.696,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 24576, "num_experts": 64, "topk": 4, "index": 66}
+{
+    "latency(us)": 480.086,
+    "read_bytes(B)": 6291456,
+    "write_bytes(B)": 786432,
+    "io_bytes(B)": 7077888,
+    "mem_bw(GB/s)": 14.743,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 26624, "num_experts": 64, "topk": 4, "index": 67}
+{
+    "latency(us)": 517.892,
+    "read_bytes(B)": 6815744,
+    "write_bytes(B)": 851968,
+    "io_bytes(B)": 7667712,
+    "mem_bw(GB/s)": 14.806,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 28672, "num_experts": 64, "topk": 4, "index": 68}
+{
+    "latency(us)": 556.668,
+    "read_bytes(B)": 7340032,
+    "write_bytes(B)": 917504,
+    "io_bytes(B)": 8257536,
+    "mem_bw(GB/s)": 14.834,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 32768, "num_experts": 64, "topk": 4, "index": 69}
+{
+    "latency(us)": 634.681,
+    "read_bytes(B)": 8388608,
+    "write_bytes(B)": 1048576,
+    "io_bytes(B)": 9437184,
+    "mem_bw(GB/s)": 14.869,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 32, "num_experts": 64, "topk": 4, "index": 70}
+{
+    "latency(us)": 10.716,
+    "read_bytes(B)": 8192,
+    "write_bytes(B)": 1024,
+    "io_bytes(B)": 9216,
+    "mem_bw(GB/s)": 0.86,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 40, "num_experts": 64, "topk": 4, "index": 71}
+{
+    "latency(us)": 10.66,
+    "read_bytes(B)": 10240,
+    "write_bytes(B)": 1280,
+    "io_bytes(B)": 11520,
+    "mem_bw(GB/s)": 1.081,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 48, "num_experts": 64, "topk": 4, "index": 72}
+{
+    "latency(us)": 11.208,
+    "read_bytes(B)": 12288,
+    "write_bytes(B)": 1536,
+    "io_bytes(B)": 13824,
+    "mem_bw(GB/s)": 1.233,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 56, "num_experts": 64, "topk": 4, "index": 73}
+{
+    "latency(us)": 11.566,
+    "read_bytes(B)": 14336,
+    "write_bytes(B)": 1792,
+    "io_bytes(B)": 16128,
+    "mem_bw(GB/s)": 1.394,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 64, "num_experts": 64, "topk": 4, "index": 74}
+{
+    "latency(us)": 11.672,
+    "read_bytes(B)": 16384,
+    "write_bytes(B)": 2048,
+    "io_bytes(B)": 18432,
+    "mem_bw(GB/s)": 1.579,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 72, "num_experts": 64, "topk": 4, "index": 75}
+{
+    "latency(us)": 12.194,
+    "read_bytes(B)": 18432,
+    "write_bytes(B)": 2304,
+    "io_bytes(B)": 20736,
+    "mem_bw(GB/s)": 1.7,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 80, "num_experts": 64, "topk": 4, "index": 76}
+{
+    "latency(us)": 11.966,
+    "read_bytes(B)": 20480,
+    "write_bytes(B)": 2560,
+    "io_bytes(B)": 23040,
+    "mem_bw(GB/s)": 1.925,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 88, "num_experts": 64, "topk": 4, "index": 77}
+{
+    "latency(us)": 12.358,
+    "read_bytes(B)": 22528,
+    "write_bytes(B)": 2816,
+    "io_bytes(B)": 25344,
+    "mem_bw(GB/s)": 2.051,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 96, "num_experts": 64, "topk": 4, "index": 78}
+{
+    "latency(us)": 12.342,
+    "read_bytes(B)": 24576,
+    "write_bytes(B)": 3072,
+    "io_bytes(B)": 27648,
+    "mem_bw(GB/s)": 2.24,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 104, "num_experts": 64, "topk": 4, "index": 79}
+{
+    "latency(us)": 11.95,
+    "read_bytes(B)": 26624,
+    "write_bytes(B)": 3328,
+    "io_bytes(B)": 29952,
+    "mem_bw(GB/s)": 2.506,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 112, "num_experts": 64, "topk": 4, "index": 80}
+{
+    "latency(us)": 12.23,
+    "read_bytes(B)": 28672,
+    "write_bytes(B)": 3584,
+    "io_bytes(B)": 32256,
+    "mem_bw(GB/s)": 2.637,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 120, "num_experts": 64, "topk": 4, "index": 81}
+{
+    "latency(us)": 12.468,
+    "read_bytes(B)": 30720,
+    "write_bytes(B)": 3840,
+    "io_bytes(B)": 34560,
+    "mem_bw(GB/s)": 2.772,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 128, "num_experts": 64, "topk": 4, "index": 82}
+{
+    "latency(us)": 12.094,
+    "read_bytes(B)": 32768,
+    "write_bytes(B)": 4096,
+    "io_bytes(B)": 36864,
+    "mem_bw(GB/s)": 3.048,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 144, "num_experts": 64, "topk": 4, "index": 83}
+{
+    "latency(us)": 12.452,
+    "read_bytes(B)": 36864,
+    "write_bytes(B)": 4608,
+    "io_bytes(B)": 41472,
+    "mem_bw(GB/s)": 3.331,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 160, "num_experts": 64, "topk": 4, "index": 84}
+{
+    "latency(us)": 12.644,
+    "read_bytes(B)": 40960,
+    "write_bytes(B)": 5120,
+    "io_bytes(B)": 46080,
+    "mem_bw(GB/s)": 3.644,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 176, "num_experts": 64, "topk": 4, "index": 85}
+{
+    "latency(us)": 12.998,
+    "read_bytes(B)": 45056,
+    "write_bytes(B)": 5632,
+    "io_bytes(B)": 50688,
+    "mem_bw(GB/s)": 3.9,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 192, "num_experts": 64, "topk": 4, "index": 86}
+{
+    "latency(us)": 12.75,
+    "read_bytes(B)": 49152,
+    "write_bytes(B)": 6144,
+    "io_bytes(B)": 55296,
+    "mem_bw(GB/s)": 4.337,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 208, "num_experts": 64, "topk": 4, "index": 87}
+{
+    "latency(us)": 13.052,
+    "read_bytes(B)": 53248,
+    "write_bytes(B)": 6656,
+    "io_bytes(B)": 59904,
+    "mem_bw(GB/s)": 4.59,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 224, "num_experts": 64, "topk": 4, "index": 88}
+{
+    "latency(us)": 13.502,
+    "read_bytes(B)": 57344,
+    "write_bytes(B)": 7168,
+    "io_bytes(B)": 64512,
+    "mem_bw(GB/s)": 4.778,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 240, "num_experts": 64, "topk": 4, "index": 89}
+{
+    "latency(us)": 13.59,
+    "read_bytes(B)": 61440,
+    "write_bytes(B)": 7680,
+    "io_bytes(B)": 69120,
+    "mem_bw(GB/s)": 5.086,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 256, "num_experts": 64, "topk": 4, "index": 90}
+{
+    "latency(us)": 14.156,
+    "read_bytes(B)": 65536,
+    "write_bytes(B)": 8192,
+    "io_bytes(B)": 73728,
+    "mem_bw(GB/s)": 5.208,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 288, "num_experts": 64, "topk": 4, "index": 91}
+{
+    "latency(us)": 14.014,
+    "read_bytes(B)": 73728,
+    "write_bytes(B)": 9216,
+    "io_bytes(B)": 82944,
+    "mem_bw(GB/s)": 5.919,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 320, "num_experts": 64, "topk": 4, "index": 92}
+{
+    "latency(us)": 14.65,
+    "read_bytes(B)": 81920,
+    "write_bytes(B)": 10240,
+    "io_bytes(B)": 92160,
+    "mem_bw(GB/s)": 6.291,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 352, "num_experts": 64, "topk": 4, "index": 93}
+{
+    "latency(us)": 15.03,
+    "read_bytes(B)": 90112,
+    "write_bytes(B)": 11264,
+    "io_bytes(B)": 101376,
+    "mem_bw(GB/s)": 6.745,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 384, "num_experts": 64, "topk": 4, "index": 94}
+{
+    "latency(us)": 15.12,
+    "read_bytes(B)": 98304,
+    "write_bytes(B)": 12288,
+    "io_bytes(B)": 110592,
+    "mem_bw(GB/s)": 7.314,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 416, "num_experts": 64, "topk": 4, "index": 95}
+{
+    "latency(us)": 16.366,
+    "read_bytes(B)": 106496,
+    "write_bytes(B)": 13312,
+    "io_bytes(B)": 119808,
+    "mem_bw(GB/s)": 7.321,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 448, "num_experts": 64, "topk": 4, "index": 96}
+{
+    "latency(us)": 16.42,
+    "read_bytes(B)": 114688,
+    "write_bytes(B)": 14336,
+    "io_bytes(B)": 129024,
+    "mem_bw(GB/s)": 7.858,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 480, "num_experts": 64, "topk": 4, "index": 97}
+{
+    "latency(us)": 17.82,
+    "read_bytes(B)": 122880,
+    "write_bytes(B)": 15360,
+    "io_bytes(B)": 138240,
+    "mem_bw(GB/s)": 7.758,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 512, "num_experts": 64, "topk": 4, "index": 98}
+{
+    "latency(us)": 18.208,
+    "read_bytes(B)": 131072,
+    "write_bytes(B)": 16384,
+    "io_bytes(B)": 147456,
+    "mem_bw(GB/s)": 8.098,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 640, "num_experts": 64, "topk": 4, "index": 99}
+{
+    "latency(us)": 20.388,
+    "read_bytes(B)": 163840,
+    "write_bytes(B)": 20480,
+    "io_bytes(B)": 184320,
+    "mem_bw(GB/s)": 9.041,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 768, "num_experts": 64, "topk": 4, "index": 100}
+{
+    "latency(us)": 22.42,
+    "read_bytes(B)": 196608,
+    "write_bytes(B)": 24576,
+    "io_bytes(B)": 221184,
+    "mem_bw(GB/s)": 9.865,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 896, "num_experts": 64, "topk": 4, "index": 101}
+{
+    "latency(us)": 24.114,
+    "read_bytes(B)": 229376,
+    "write_bytes(B)": 28672,
+    "io_bytes(B)": 258048,
+    "mem_bw(GB/s)": 10.701,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1024, "num_experts": 64, "topk": 4, "index": 102}
+{
+    "latency(us)": 26.53,
+    "read_bytes(B)": 262144,
+    "write_bytes(B)": 32768,
+    "io_bytes(B)": 294912,
+    "mem_bw(GB/s)": 11.116,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1152, "num_experts": 64, "topk": 4, "index": 103}
+{
+    "latency(us)": 28.77,
+    "read_bytes(B)": 294912,
+    "write_bytes(B)": 36864,
+    "io_bytes(B)": 331776,
+    "mem_bw(GB/s)": 11.532,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1280, "num_experts": 64, "topk": 4, "index": 104}
+{
+    "latency(us)": 32.07,
+    "read_bytes(B)": 327680,
+    "write_bytes(B)": 40960,
+    "io_bytes(B)": 368640,
+    "mem_bw(GB/s)": 11.495,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1408, "num_experts": 64, "topk": 4, "index": 105}
+{
+    "latency(us)": 33.726,
+    "read_bytes(B)": 360448,
+    "write_bytes(B)": 45056,
+    "io_bytes(B)": 405504,
+    "mem_bw(GB/s)": 12.024,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1536, "num_experts": 64, "topk": 4, "index": 106}
+{
+    "latency(us)": 35.99,
+    "read_bytes(B)": 393216,
+    "write_bytes(B)": 49152,
+    "io_bytes(B)": 442368,
+    "mem_bw(GB/s)": 12.291,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1664, "num_experts": 64, "topk": 4, "index": 107}
+{
+    "latency(us)": 38.606,
+    "read_bytes(B)": 425984,
+    "write_bytes(B)": 53248,
+    "io_bytes(B)": 479232,
+    "mem_bw(GB/s)": 12.413,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1792, "num_experts": 64, "topk": 4, "index": 108}
+{
+    "latency(us)": 40.652,
+    "read_bytes(B)": 458752,
+    "write_bytes(B)": 57344,
+    "io_bytes(B)": 516096,
+    "mem_bw(GB/s)": 12.695,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1920, "num_experts": 64, "topk": 4, "index": 109}
+{
+    "latency(us)": 44.318,
+    "read_bytes(B)": 491520,
+    "write_bytes(B)": 61440,
+    "io_bytes(B)": 552960,
+    "mem_bw(GB/s)": 12.477,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2048, "num_experts": 64, "topk": 4, "index": 110}
+{
+    "latency(us)": 45.832,
+    "read_bytes(B)": 524288,
+    "write_bytes(B)": 65536,
+    "io_bytes(B)": 589824,
+    "mem_bw(GB/s)": 12.869,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2176, "num_experts": 64, "topk": 4, "index": 111}
+{
+    "latency(us)": 48.703,
+    "read_bytes(B)": 557056,
+    "write_bytes(B)": 69632,
+    "io_bytes(B)": 626688,
+    "mem_bw(GB/s)": 12.868,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2304, "num_experts": 64, "topk": 4, "index": 112}
+{
+    "latency(us)": 51.377,
+    "read_bytes(B)": 589824,
+    "write_bytes(B)": 73728,
+    "io_bytes(B)": 663552,
+    "mem_bw(GB/s)": 12.915,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2432, "num_experts": 64, "topk": 4, "index": 113}
+{
+    "latency(us)": 52.497,
+    "read_bytes(B)": 622592,
+    "write_bytes(B)": 77824,
+    "io_bytes(B)": 700416,
+    "mem_bw(GB/s)": 13.342,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2560, "num_experts": 64, "topk": 4, "index": 114}
+{
+    "latency(us)": 54.595,
+    "read_bytes(B)": 655360,
+    "write_bytes(B)": 81920,
+    "io_bytes(B)": 737280,
+    "mem_bw(GB/s)": 13.505,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2688, "num_experts": 64, "topk": 4, "index": 115}
+{
+    "latency(us)": 55.832,
+    "read_bytes(B)": 688128,
+    "write_bytes(B)": 86016,
+    "io_bytes(B)": 774144,
+    "mem_bw(GB/s)": 13.866,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2816, "num_experts": 64, "topk": 4, "index": 116}
+{
+    "latency(us)": 59.256,
+    "read_bytes(B)": 720896,
+    "write_bytes(B)": 90112,
+    "io_bytes(B)": 811008,
+    "mem_bw(GB/s)": 13.686,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2944, "num_experts": 64, "topk": 4, "index": 117}
+{
+    "latency(us)": 61.361,
+    "read_bytes(B)": 753664,
+    "write_bytes(B)": 94208,
+    "io_bytes(B)": 847872,
+    "mem_bw(GB/s)": 13.818,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3072, "num_experts": 64, "topk": 4, "index": 118}
+{
+    "latency(us)": 63.996,
+    "read_bytes(B)": 786432,
+    "write_bytes(B)": 98304,
+    "io_bytes(B)": 884736,
+    "mem_bw(GB/s)": 13.825,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3200, "num_experts": 64, "topk": 4, "index": 119}
+{
+    "latency(us)": 66.207,
+    "read_bytes(B)": 819200,
+    "write_bytes(B)": 102400,
+    "io_bytes(B)": 921600,
+    "mem_bw(GB/s)": 13.92,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3328, "num_experts": 64, "topk": 4, "index": 120}
+{
+    "latency(us)": 68.711,
+    "read_bytes(B)": 851968,
+    "write_bytes(B)": 106496,
+    "io_bytes(B)": 958464,
+    "mem_bw(GB/s)": 13.949,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3456, "num_experts": 64, "topk": 4, "index": 121}
+{
+    "latency(us)": 69.699,
+    "read_bytes(B)": 884736,
+    "write_bytes(B)": 110592,
+    "io_bytes(B)": 995328,
+    "mem_bw(GB/s)": 14.28,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3584, "num_experts": 64, "topk": 4, "index": 122}
+{
+    "latency(us)": 70.873,
+    "read_bytes(B)": 917504,
+    "write_bytes(B)": 114688,
+    "io_bytes(B)": 1032192,
+    "mem_bw(GB/s)": 14.564,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3712, "num_experts": 64, "topk": 4, "index": 123}
+{
+    "latency(us)": 75.499,
+    "read_bytes(B)": 950272,
+    "write_bytes(B)": 118784,
+    "io_bytes(B)": 1069056,
+    "mem_bw(GB/s)": 14.16,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3840, "num_experts": 64, "topk": 4, "index": 124}
+{
+    "latency(us)": 76.246,
+    "read_bytes(B)": 983040,
+    "write_bytes(B)": 122880,
+    "io_bytes(B)": 1105920,
+    "mem_bw(GB/s)": 14.505,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3968, "num_experts": 64, "topk": 4, "index": 125}
+{
+    "latency(us)": 78.378,
+    "read_bytes(B)": 1015808,
+    "write_bytes(B)": 126976,
+    "io_bytes(B)": 1142784,
+    "mem_bw(GB/s)": 14.58,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 4096, "num_experts": 64, "topk": 4, "index": 126}
+{
+    "latency(us)": 81.515,
+    "read_bytes(B)": 1048576,
+    "write_bytes(B)": 131072,
+    "io_bytes(B)": 1179648,
+    "mem_bw(GB/s)": 14.472,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 6144, "num_experts": 64, "topk": 4, "index": 127}
+{
+    "latency(us)": 116.587,
+    "read_bytes(B)": 1572864,
+    "write_bytes(B)": 196608,
+    "io_bytes(B)": 1769472,
+    "mem_bw(GB/s)": 15.177,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 8192, "num_experts": 64, "topk": 4, "index": 128}
+{
+    "latency(us)": 153.107,
+    "read_bytes(B)": 2097152,
+    "write_bytes(B)": 262144,
+    "io_bytes(B)": 2359296,
+    "mem_bw(GB/s)": 15.409,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 10240, "num_experts": 64, "topk": 4, "index": 129}
+{
+    "latency(us)": 188.998,
+    "read_bytes(B)": 2621440,
+    "write_bytes(B)": 327680,
+    "io_bytes(B)": 2949120,
+    "mem_bw(GB/s)": 15.604,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 12288, "num_experts": 64, "topk": 4, "index": 130}
+{
+    "latency(us)": 224.76,
+    "read_bytes(B)": 3145728,
+    "write_bytes(B)": 393216,
+    "io_bytes(B)": 3538944,
+    "mem_bw(GB/s)": 15.745,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 14336, "num_experts": 64, "topk": 4, "index": 131}
+{
+    "latency(us)": 259.924,
+    "read_bytes(B)": 3670016,
+    "write_bytes(B)": 458752,
+    "io_bytes(B)": 4128768,
+    "mem_bw(GB/s)": 15.885,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 16384, "num_experts": 64, "topk": 4, "index": 132}
+{
+    "latency(us)": 296.261,
+    "read_bytes(B)": 4194304,
+    "write_bytes(B)": 524288,
+    "io_bytes(B)": 4718592,
+    "mem_bw(GB/s)": 15.927,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 18432, "num_experts": 64, "topk": 4, "index": 133}
+{
+    "latency(us)": 332.413,
+    "read_bytes(B)": 4718592,
+    "write_bytes(B)": 589824,
+    "io_bytes(B)": 5308416,
+    "mem_bw(GB/s)": 15.969,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 20480, "num_experts": 64, "topk": 4, "index": 134}
+{
+    "latency(us)": 367.134,
+    "read_bytes(B)": 5242880,
+    "write_bytes(B)": 655360,
+    "io_bytes(B)": 5898240,
+    "mem_bw(GB/s)": 16.066,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 22528, "num_experts": 64, "topk": 4, "index": 135}
+{
+    "latency(us)": 403.72,
+    "read_bytes(B)": 5767168,
+    "write_bytes(B)": 720896,
+    "io_bytes(B)": 6488064,
+    "mem_bw(GB/s)": 16.071,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 24576, "num_experts": 64, "topk": 4, "index": 136}
+{
+    "latency(us)": 438.913,
+    "read_bytes(B)": 6291456,
+    "write_bytes(B)": 786432,
+    "io_bytes(B)": 7077888,
+    "mem_bw(GB/s)": 16.126,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 26624, "num_experts": 64, "topk": 4, "index": 137}
+{
+    "latency(us)": 474.552,
+    "read_bytes(B)": 6815744,
+    "write_bytes(B)": 851968,
+    "io_bytes(B)": 7667712,
+    "mem_bw(GB/s)": 16.158,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 28672, "num_experts": 64, "topk": 4, "index": 138}
+{
+    "latency(us)": 509.877,
+    "read_bytes(B)": 7340032,
+    "write_bytes(B)": 917504,
+    "io_bytes(B)": 8257536,
+    "mem_bw(GB/s)": 16.195,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 32768, "num_experts": 64, "topk": 4, "index": 139}
+{
+    "latency(us)": 581.715,
+    "read_bytes(B)": 8388608,
+    "write_bytes(B)": 1048576,
+    "io_bytes(B)": 9437184,
+    "mem_bw(GB/s)": 16.223,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 32, "num_experts": 64, "topk": 4, "index": 140}
+{
+    "latency(us)": 14.86,
+    "read_bytes(B)": 8192,
+    "write_bytes(B)": 1024,
+    "io_bytes(B)": 9216,
+    "mem_bw(GB/s)": 0.62,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 40, "num_experts": 64, "topk": 4, "index": 141}
+{
+    "latency(us)": 15.386,
+    "read_bytes(B)": 10240,
+    "write_bytes(B)": 1280,
+    "io_bytes(B)": 11520,
+    "mem_bw(GB/s)": 0.749,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 48, "num_experts": 64, "topk": 4, "index": 142}
+{
+    "latency(us)": 14.178,
+    "read_bytes(B)": 12288,
+    "write_bytes(B)": 1536,
+    "io_bytes(B)": 13824,
+    "mem_bw(GB/s)": 0.975,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 56, "num_experts": 64, "topk": 4, "index": 143}
+{
+    "latency(us)": 14.268,
+    "read_bytes(B)": 14336,
+    "write_bytes(B)": 1792,
+    "io_bytes(B)": 16128,
+    "mem_bw(GB/s)": 1.13,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 64, "num_experts": 64, "topk": 4, "index": 144}
+{
+    "latency(us)": 15.788,
+    "read_bytes(B)": 16384,
+    "write_bytes(B)": 2048,
+    "io_bytes(B)": 18432,
+    "mem_bw(GB/s)": 1.167,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 72, "num_experts": 64, "topk": 4, "index": 145}
+{
+    "latency(us)": 15.55,
+    "read_bytes(B)": 18432,
+    "write_bytes(B)": 2304,
+    "io_bytes(B)": 20736,
+    "mem_bw(GB/s)": 1.333,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 80, "num_experts": 64, "topk": 4, "index": 146}
+{
+    "latency(us)": 15.74,
+    "read_bytes(B)": 20480,
+    "write_bytes(B)": 2560,
+    "io_bytes(B)": 23040,
+    "mem_bw(GB/s)": 1.464,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 88, "num_experts": 64, "topk": 4, "index": 147}
+{
+    "latency(us)": 16.152,
+    "read_bytes(B)": 22528,
+    "write_bytes(B)": 2816,
+    "io_bytes(B)": 25344,
+    "mem_bw(GB/s)": 1.569,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 96, "num_experts": 64, "topk": 4, "index": 148}
+{
+    "latency(us)": 16.188,
+    "read_bytes(B)": 24576,
+    "write_bytes(B)": 3072,
+    "io_bytes(B)": 27648,
+    "mem_bw(GB/s)": 1.708,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 104, "num_experts": 64, "topk": 4, "index": 149}
+{
+    "latency(us)": 16.328,
+    "read_bytes(B)": 26624,
+    "write_bytes(B)": 3328,
+    "io_bytes(B)": 29952,
+    "mem_bw(GB/s)": 1.834,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 112, "num_experts": 64, "topk": 4, "index": 150}
+{
+    "latency(us)": 16.584,
+    "read_bytes(B)": 28672,
+    "write_bytes(B)": 3584,
+    "io_bytes(B)": 32256,
+    "mem_bw(GB/s)": 1.945,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 120, "num_experts": 64, "topk": 4, "index": 151}
+{
+    "latency(us)": 16.088,
+    "read_bytes(B)": 30720,
+    "write_bytes(B)": 3840,
+    "io_bytes(B)": 34560,
+    "mem_bw(GB/s)": 2.148,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 128, "num_experts": 64, "topk": 4, "index": 152}
+{
+    "latency(us)": 16.978,
+    "read_bytes(B)": 32768,
+    "write_bytes(B)": 4096,
+    "io_bytes(B)": 36864,
+    "mem_bw(GB/s)": 2.171,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 144, "num_experts": 64, "topk": 4, "index": 153}
+{
+    "latency(us)": 16.352,
+    "read_bytes(B)": 36864,
+    "write_bytes(B)": 4608,
+    "io_bytes(B)": 41472,
+    "mem_bw(GB/s)": 2.536,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 160, "num_experts": 64, "topk": 4, "index": 154}
+{
+    "latency(us)": 16.436,
+    "read_bytes(B)": 40960,
+    "write_bytes(B)": 5120,
+    "io_bytes(B)": 46080,
+    "mem_bw(GB/s)": 2.804,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 176, "num_experts": 64, "topk": 4, "index": 155}
+{
+    "latency(us)": 16.736,
+    "read_bytes(B)": 45056,
+    "write_bytes(B)": 5632,
+    "io_bytes(B)": 50688,
+    "mem_bw(GB/s)": 3.029,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 192, "num_experts": 64, "topk": 4, "index": 156}
+{
+    "latency(us)": 17.22,
+    "read_bytes(B)": 49152,
+    "write_bytes(B)": 6144,
+    "io_bytes(B)": 55296,
+    "mem_bw(GB/s)": 3.211,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 208, "num_experts": 64, "topk": 4, "index": 157}
+{
+    "latency(us)": 17.663,
+    "read_bytes(B)": 53248,
+    "write_bytes(B)": 6656,
+    "io_bytes(B)": 59904,
+    "mem_bw(GB/s)": 3.392,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 224, "num_experts": 64, "topk": 4, "index": 158}
+{
+    "latency(us)": 17.076,
+    "read_bytes(B)": 57344,
+    "write_bytes(B)": 7168,
+    "io_bytes(B)": 64512,
+    "mem_bw(GB/s)": 3.778,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 240, "num_experts": 64, "topk": 4, "index": 159}
+{
+    "latency(us)": 17.63,
+    "read_bytes(B)": 61440,
+    "write_bytes(B)": 7680,
+    "io_bytes(B)": 69120,
+    "mem_bw(GB/s)": 3.921,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 256, "num_experts": 64, "topk": 4, "index": 160}
+{
+    "latency(us)": 17.884,
+    "read_bytes(B)": 65536,
+    "write_bytes(B)": 8192,
+    "io_bytes(B)": 73728,
+    "mem_bw(GB/s)": 4.123,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 288, "num_experts": 64, "topk": 4, "index": 161}
+{
+    "latency(us)": 18.062,
+    "read_bytes(B)": 73728,
+    "write_bytes(B)": 9216,
+    "io_bytes(B)": 82944,
+    "mem_bw(GB/s)": 4.592,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 320, "num_experts": 64, "topk": 4, "index": 162}
+{
+    "latency(us)": 19.136,
+    "read_bytes(B)": 81920,
+    "write_bytes(B)": 10240,
+    "io_bytes(B)": 92160,
+    "mem_bw(GB/s)": 4.816,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 352, "num_experts": 64, "topk": 4, "index": 163}
+{
+    "latency(us)": 20.218,
+    "read_bytes(B)": 90112,
+    "write_bytes(B)": 11264,
+    "io_bytes(B)": 101376,
+    "mem_bw(GB/s)": 5.014,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 384, "num_experts": 64, "topk": 4, "index": 164}
+{
+    "latency(us)": 19.78,
+    "read_bytes(B)": 98304,
+    "write_bytes(B)": 12288,
+    "io_bytes(B)": 110592,
+    "mem_bw(GB/s)": 5.591,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 416, "num_experts": 64, "topk": 4, "index": 165}
+{
+    "latency(us)": 20.624,
+    "read_bytes(B)": 106496,
+    "write_bytes(B)": 13312,
+    "io_bytes(B)": 119808,
+    "mem_bw(GB/s)": 5.809,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 448, "num_experts": 64, "topk": 4, "index": 166}
+{
+    "latency(us)": 21.218,
+    "read_bytes(B)": 114688,
+    "write_bytes(B)": 14336,
+    "io_bytes(B)": 129024,
+    "mem_bw(GB/s)": 6.081,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 480, "num_experts": 64, "topk": 4, "index": 167}
+{
+    "latency(us)": 22.084,
+    "read_bytes(B)": 122880,
+    "write_bytes(B)": 15360,
+    "io_bytes(B)": 138240,
+    "mem_bw(GB/s)": 6.26,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 512, "num_experts": 64, "topk": 4, "index": 168}
+{
+    "latency(us)": 22.714,
+    "read_bytes(B)": 131072,
+    "write_bytes(B)": 16384,
+    "io_bytes(B)": 147456,
+    "mem_bw(GB/s)": 6.492,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 640, "num_experts": 64, "topk": 4, "index": 169}
+{
+    "latency(us)": 24.908,
+    "read_bytes(B)": 163840,
+    "write_bytes(B)": 20480,
+    "io_bytes(B)": 184320,
+    "mem_bw(GB/s)": 7.4,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 768, "num_experts": 64, "topk": 4, "index": 170}
+{
+    "latency(us)": 26.65,
+    "read_bytes(B)": 196608,
+    "write_bytes(B)": 24576,
+    "io_bytes(B)": 221184,
+    "mem_bw(GB/s)": 8.299,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 896, "num_experts": 64, "topk": 4, "index": 171}
+{
+    "latency(us)": 28.866,
+    "read_bytes(B)": 229376,
+    "write_bytes(B)": 28672,
+    "io_bytes(B)": 258048,
+    "mem_bw(GB/s)": 8.939,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1024, "num_experts": 64, "topk": 4, "index": 172}
+{
+    "latency(us)": 31.766,
+    "read_bytes(B)": 262144,
+    "write_bytes(B)": 32768,
+    "io_bytes(B)": 294912,
+    "mem_bw(GB/s)": 9.284,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1152, "num_experts": 64, "topk": 4, "index": 173}
+{
+    "latency(us)": 33.73,
+    "read_bytes(B)": 294912,
+    "write_bytes(B)": 36864,
+    "io_bytes(B)": 331776,
+    "mem_bw(GB/s)": 9.836,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1280, "num_experts": 64, "topk": 4, "index": 174}
+{
+    "latency(us)": 37.188,
+    "read_bytes(B)": 327680,
+    "write_bytes(B)": 40960,
+    "io_bytes(B)": 368640,
+    "mem_bw(GB/s)": 9.913,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1408, "num_experts": 64, "topk": 4, "index": 175}
+{
+    "latency(us)": 38.806,
+    "read_bytes(B)": 360448,
+    "write_bytes(B)": 45056,
+    "io_bytes(B)": 405504,
+    "mem_bw(GB/s)": 10.449,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1536, "num_experts": 64, "topk": 4, "index": 176}
+{
+    "latency(us)": 41.058,
+    "read_bytes(B)": 393216,
+    "write_bytes(B)": 49152,
+    "io_bytes(B)": 442368,
+    "mem_bw(GB/s)": 10.774,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1664, "num_experts": 64, "topk": 4, "index": 177}
+{
+    "latency(us)": 43.955,
+    "read_bytes(B)": 425984,
+    "write_bytes(B)": 53248,
+    "io_bytes(B)": 479232,
+    "mem_bw(GB/s)": 10.903,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1792, "num_experts": 64, "topk": 4, "index": 178}
+{
+    "latency(us)": 46.08,
+    "read_bytes(B)": 458752,
+    "write_bytes(B)": 57344,
+    "io_bytes(B)": 516096,
+    "mem_bw(GB/s)": 11.2,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1920, "num_experts": 64, "topk": 4, "index": 179}
+{
+    "latency(us)": 49.567,
+    "read_bytes(B)": 491520,
+    "write_bytes(B)": 61440,
+    "io_bytes(B)": 552960,
+    "mem_bw(GB/s)": 11.156,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2048, "num_experts": 64, "topk": 4, "index": 180}
+{
+    "latency(us)": 51.664,
+    "read_bytes(B)": 524288,
+    "write_bytes(B)": 65536,
+    "io_bytes(B)": 589824,
+    "mem_bw(GB/s)": 11.416,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2176, "num_experts": 64, "topk": 4, "index": 181}
+{
+    "latency(us)": 54.841,
+    "read_bytes(B)": 557056,
+    "write_bytes(B)": 69632,
+    "io_bytes(B)": 626688,
+    "mem_bw(GB/s)": 11.427,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2304, "num_experts": 64, "topk": 4, "index": 182}
+{
+    "latency(us)": 56.027,
+    "read_bytes(B)": 589824,
+    "write_bytes(B)": 73728,
+    "io_bytes(B)": 663552,
+    "mem_bw(GB/s)": 11.843,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2432, "num_experts": 64, "topk": 4, "index": 183}
+{
+    "latency(us)": 58.292,
+    "read_bytes(B)": 622592,
+    "write_bytes(B)": 77824,
+    "io_bytes(B)": 700416,
+    "mem_bw(GB/s)": 12.016,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2560, "num_experts": 64, "topk": 4, "index": 184}
+{
+    "latency(us)": 60.476,
+    "read_bytes(B)": 655360,
+    "write_bytes(B)": 81920,
+    "io_bytes(B)": 737280,
+    "mem_bw(GB/s)": 12.191,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2688, "num_experts": 64, "topk": 4, "index": 185}
+{
+    "latency(us)": 62.639,
+    "read_bytes(B)": 688128,
+    "write_bytes(B)": 86016,
+    "io_bytes(B)": 774144,
+    "mem_bw(GB/s)": 12.359,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2816, "num_experts": 64, "topk": 4, "index": 186}
+{
+    "latency(us)": 66.43,
+    "read_bytes(B)": 720896,
+    "write_bytes(B)": 90112,
+    "io_bytes(B)": 811008,
+    "mem_bw(GB/s)": 12.208,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2944, "num_experts": 64, "topk": 4, "index": 187}
+{
+    "latency(us)": 67.297,
+    "read_bytes(B)": 753664,
+    "write_bytes(B)": 94208,
+    "io_bytes(B)": 847872,
+    "mem_bw(GB/s)": 12.599,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3072, "num_experts": 64, "topk": 4, "index": 188}
+{
+    "latency(us)": 68.785,
+    "read_bytes(B)": 786432,
+    "write_bytes(B)": 98304,
+    "io_bytes(B)": 884736,
+    "mem_bw(GB/s)": 12.862,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3200, "num_experts": 64, "topk": 4, "index": 189}
+{
+    "latency(us)": 73.649,
+    "read_bytes(B)": 819200,
+    "write_bytes(B)": 102400,
+    "io_bytes(B)": 921600,
+    "mem_bw(GB/s)": 12.513,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3328, "num_experts": 64, "topk": 4, "index": 190}
+{
+    "latency(us)": 74.539,
+    "read_bytes(B)": 851968,
+    "write_bytes(B)": 106496,
+    "io_bytes(B)": 958464,
+    "mem_bw(GB/s)": 12.859,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3456, "num_experts": 64, "topk": 4, "index": 191}
+{
+    "latency(us)": 76.075,
+    "read_bytes(B)": 884736,
+    "write_bytes(B)": 110592,
+    "io_bytes(B)": 995328,
+    "mem_bw(GB/s)": 13.084,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3584, "num_experts": 64, "topk": 4, "index": 192}
+{
+    "latency(us)": 77.873,
+    "read_bytes(B)": 917504,
+    "write_bytes(B)": 114688,
+    "io_bytes(B)": 1032192,
+    "mem_bw(GB/s)": 13.255,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3712, "num_experts": 64, "topk": 4, "index": 193}
+{
+    "latency(us)": 81.715,
+    "read_bytes(B)": 950272,
+    "write_bytes(B)": 118784,
+    "io_bytes(B)": 1069056,
+    "mem_bw(GB/s)": 13.083,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3840, "num_experts": 64, "topk": 4, "index": 194}
+{
+    "latency(us)": 83.921,
+    "read_bytes(B)": 983040,
+    "write_bytes(B)": 122880,
+    "io_bytes(B)": 1105920,
+    "mem_bw(GB/s)": 13.178,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3968, "num_experts": 64, "topk": 4, "index": 195}
+{
+    "latency(us)": 85.709,
+    "read_bytes(B)": 1015808,
+    "write_bytes(B)": 126976,
+    "io_bytes(B)": 1142784,
+    "mem_bw(GB/s)": 13.333,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 4096, "num_experts": 64, "topk": 4, "index": 196}
+{
+    "latency(us)": 88.935,
+    "read_bytes(B)": 1048576,
+    "write_bytes(B)": 131072,
+    "io_bytes(B)": 1179648,
+    "mem_bw(GB/s)": 13.264,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 6144, "num_experts": 64, "topk": 4, "index": 197}
+{
+    "latency(us)": 127.905,
+    "read_bytes(B)": 1572864,
+    "write_bytes(B)": 196608,
+    "io_bytes(B)": 1769472,
+    "mem_bw(GB/s)": 13.834,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 8192, "num_experts": 64, "topk": 4, "index": 198}
+{
+    "latency(us)": 167.469,
+    "read_bytes(B)": 2097152,
+    "write_bytes(B)": 262144,
+    "io_bytes(B)": 2359296,
+    "mem_bw(GB/s)": 14.088,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 10240, "num_experts": 64, "topk": 4, "index": 199}
+{
+    "latency(us)": 205.726,
+    "read_bytes(B)": 2621440,
+    "write_bytes(B)": 327680,
+    "io_bytes(B)": 2949120,
+    "mem_bw(GB/s)": 14.335,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 12288, "num_experts": 64, "topk": 4, "index": 200}
+{
+    "latency(us)": 246.912,
+    "read_bytes(B)": 3145728,
+    "write_bytes(B)": 393216,
+    "io_bytes(B)": 3538944,
+    "mem_bw(GB/s)": 14.333,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 14336, "num_experts": 64, "topk": 4, "index": 201}
+{
+    "latency(us)": 284.988,
+    "read_bytes(B)": 3670016,
+    "write_bytes(B)": 458752,
+    "io_bytes(B)": 4128768,
+    "mem_bw(GB/s)": 14.488,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 16384, "num_experts": 64, "topk": 4, "index": 202}
+{
+    "latency(us)": 324.255,
+    "read_bytes(B)": 4194304,
+    "write_bytes(B)": 524288,
+    "io_bytes(B)": 4718592,
+    "mem_bw(GB/s)": 14.552,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 18432, "num_experts": 64, "topk": 4, "index": 203}
+{
+    "latency(us)": 364.516,
+    "read_bytes(B)": 4718592,
+    "write_bytes(B)": 589824,
+    "io_bytes(B)": 5308416,
+    "mem_bw(GB/s)": 14.563,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 20480, "num_experts": 64, "topk": 4, "index": 204}
+{
+    "latency(us)": 401.978,
+    "read_bytes(B)": 5242880,
+    "write_bytes(B)": 655360,
+    "io_bytes(B)": 5898240,
+    "mem_bw(GB/s)": 14.673,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 22528, "num_experts": 64, "topk": 4, "index": 205}
+{
+    "latency(us)": 441.248,
+    "read_bytes(B)": 5767168,
+    "write_bytes(B)": 720896,
+    "io_bytes(B)": 6488064,
+    "mem_bw(GB/s)": 14.704,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 24576, "num_experts": 64, "topk": 4, "index": 206}
+{
+    "latency(us)": 479.32,
+    "read_bytes(B)": 6291456,
+    "write_bytes(B)": 786432,
+    "io_bytes(B)": 7077888,
+    "mem_bw(GB/s)": 14.767,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 26624, "num_experts": 64, "topk": 4, "index": 207}
+{
+    "latency(us)": 519.154,
+    "read_bytes(B)": 6815744,
+    "write_bytes(B)": 851968,
+    "io_bytes(B)": 7667712,
+    "mem_bw(GB/s)": 14.77,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 28672, "num_experts": 64, "topk": 4, "index": 208}
+{
+    "latency(us)": 557.07,
+    "read_bytes(B)": 7340032,
+    "write_bytes(B)": 917504,
+    "io_bytes(B)": 8257536,
+    "mem_bw(GB/s)": 14.823,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "pre-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 32768, "num_experts": 64, "topk": 4, "index": 209}
+{
+    "latency(us)": 636.039,
+    "read_bytes(B)": 8388608,
+    "write_bytes(B)": 1048576,
+    "io_bytes(B)": 9437184,
+    "mem_bw(GB/s)": 14.837,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 32, "num_experts": 64, "topk": 4, "index": 210}
+{
+    "latency(us)": 11.102,
+    "read_bytes(B)": 8192,
+    "write_bytes(B)": 1024,
+    "io_bytes(B)": 9216,
+    "mem_bw(GB/s)": 0.83,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 40, "num_experts": 64, "topk": 4, "index": 211}
+{
+    "latency(us)": 10.91,
+    "read_bytes(B)": 10240,
+    "write_bytes(B)": 1280,
+    "io_bytes(B)": 11520,
+    "mem_bw(GB/s)": 1.056,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 48, "num_experts": 64, "topk": 4, "index": 212}
+{
+    "latency(us)": 11.122,
+    "read_bytes(B)": 12288,
+    "write_bytes(B)": 1536,
+    "io_bytes(B)": 13824,
+    "mem_bw(GB/s)": 1.243,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 56, "num_experts": 64, "topk": 4, "index": 213}
+{
+    "latency(us)": 11.084,
+    "read_bytes(B)": 14336,
+    "write_bytes(B)": 1792,
+    "io_bytes(B)": 16128,
+    "mem_bw(GB/s)": 1.455,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 64, "num_experts": 64, "topk": 4, "index": 214}
+{
+    "latency(us)": 10.856,
+    "read_bytes(B)": 16384,
+    "write_bytes(B)": 2048,
+    "io_bytes(B)": 18432,
+    "mem_bw(GB/s)": 1.698,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 72, "num_experts": 64, "topk": 4, "index": 215}
+{
+    "latency(us)": 10.78,
+    "read_bytes(B)": 18432,
+    "write_bytes(B)": 2304,
+    "io_bytes(B)": 20736,
+    "mem_bw(GB/s)": 1.924,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 80, "num_experts": 64, "topk": 4, "index": 216}
+{
+    "latency(us)": 11.03,
+    "read_bytes(B)": 20480,
+    "write_bytes(B)": 2560,
+    "io_bytes(B)": 23040,
+    "mem_bw(GB/s)": 2.089,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 88, "num_experts": 64, "topk": 4, "index": 217}
+{
+    "latency(us)": 10.878,
+    "read_bytes(B)": 22528,
+    "write_bytes(B)": 2816,
+    "io_bytes(B)": 25344,
+    "mem_bw(GB/s)": 2.33,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 96, "num_experts": 64, "topk": 4, "index": 218}
+{
+    "latency(us)": 10.884,
+    "read_bytes(B)": 24576,
+    "write_bytes(B)": 3072,
+    "io_bytes(B)": 27648,
+    "mem_bw(GB/s)": 2.54,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 104, "num_experts": 64, "topk": 4, "index": 219}
+{
+    "latency(us)": 10.996,
+    "read_bytes(B)": 26624,
+    "write_bytes(B)": 3328,
+    "io_bytes(B)": 29952,
+    "mem_bw(GB/s)": 2.724,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 112, "num_experts": 64, "topk": 4, "index": 220}
+{
+    "latency(us)": 11.178,
+    "read_bytes(B)": 28672,
+    "write_bytes(B)": 3584,
+    "io_bytes(B)": 32256,
+    "mem_bw(GB/s)": 2.886,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 120, "num_experts": 64, "topk": 4, "index": 221}
+{
+    "latency(us)": 11.45,
+    "read_bytes(B)": 30720,
+    "write_bytes(B)": 3840,
+    "io_bytes(B)": 34560,
+    "mem_bw(GB/s)": 3.018,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 128, "num_experts": 64, "topk": 4, "index": 222}
+{
+    "latency(us)": 12.198,
+    "read_bytes(B)": 32768,
+    "write_bytes(B)": 4096,
+    "io_bytes(B)": 36864,
+    "mem_bw(GB/s)": 3.022,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 144, "num_experts": 64, "topk": 4, "index": 223}
+{
+    "latency(us)": 12.302,
+    "read_bytes(B)": 36864,
+    "write_bytes(B)": 4608,
+    "io_bytes(B)": 41472,
+    "mem_bw(GB/s)": 3.371,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 160, "num_experts": 64, "topk": 4, "index": 224}
+{
+    "latency(us)": 12.682,
+    "read_bytes(B)": 40960,
+    "write_bytes(B)": 5120,
+    "io_bytes(B)": 46080,
+    "mem_bw(GB/s)": 3.633,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 176, "num_experts": 64, "topk": 4, "index": 225}
+{
+    "latency(us)": 13.078,
+    "read_bytes(B)": 45056,
+    "write_bytes(B)": 5632,
+    "io_bytes(B)": 50688,
+    "mem_bw(GB/s)": 3.876,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 192, "num_experts": 64, "topk": 4, "index": 226}
+{
+    "latency(us)": 12.958,
+    "read_bytes(B)": 49152,
+    "write_bytes(B)": 6144,
+    "io_bytes(B)": 55296,
+    "mem_bw(GB/s)": 4.267,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 208, "num_experts": 64, "topk": 4, "index": 227}
+{
+    "latency(us)": 13.204,
+    "read_bytes(B)": 53248,
+    "write_bytes(B)": 6656,
+    "io_bytes(B)": 59904,
+    "mem_bw(GB/s)": 4.537,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 224, "num_experts": 64, "topk": 4, "index": 228}
+{
+    "latency(us)": 13.436,
+    "read_bytes(B)": 57344,
+    "write_bytes(B)": 7168,
+    "io_bytes(B)": 64512,
+    "mem_bw(GB/s)": 4.801,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 240, "num_experts": 64, "topk": 4, "index": 229}
+{
+    "latency(us)": 13.506,
+    "read_bytes(B)": 61440,
+    "write_bytes(B)": 7680,
+    "io_bytes(B)": 69120,
+    "mem_bw(GB/s)": 5.118,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 256, "num_experts": 64, "topk": 4, "index": 230}
+{
+    "latency(us)": 13.666,
+    "read_bytes(B)": 65536,
+    "write_bytes(B)": 8192,
+    "io_bytes(B)": 73728,
+    "mem_bw(GB/s)": 5.395,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 288, "num_experts": 64, "topk": 4, "index": 231}
+{
+    "latency(us)": 14.134,
+    "read_bytes(B)": 73728,
+    "write_bytes(B)": 9216,
+    "io_bytes(B)": 82944,
+    "mem_bw(GB/s)": 5.868,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 320, "num_experts": 64, "topk": 4, "index": 232}
+{
+    "latency(us)": 14.708,
+    "read_bytes(B)": 81920,
+    "write_bytes(B)": 10240,
+    "io_bytes(B)": 92160,
+    "mem_bw(GB/s)": 6.266,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 352, "num_experts": 64, "topk": 4, "index": 233}
+{
+    "latency(us)": 14.662,
+    "read_bytes(B)": 90112,
+    "write_bytes(B)": 11264,
+    "io_bytes(B)": 101376,
+    "mem_bw(GB/s)": 6.914,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 384, "num_experts": 64, "topk": 4, "index": 234}
+{
+    "latency(us)": 15.994,
+    "read_bytes(B)": 98304,
+    "write_bytes(B)": 12288,
+    "io_bytes(B)": 110592,
+    "mem_bw(GB/s)": 6.915,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 416, "num_experts": 64, "topk": 4, "index": 235}
+{
+    "latency(us)": 16.018,
+    "read_bytes(B)": 106496,
+    "write_bytes(B)": 13312,
+    "io_bytes(B)": 119808,
+    "mem_bw(GB/s)": 7.479,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 448, "num_experts": 64, "topk": 4, "index": 236}
+{
+    "latency(us)": 16.846,
+    "read_bytes(B)": 114688,
+    "write_bytes(B)": 14336,
+    "io_bytes(B)": 129024,
+    "mem_bw(GB/s)": 7.659,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 480, "num_experts": 64, "topk": 4, "index": 237}
+{
+    "latency(us)": 18.01,
+    "read_bytes(B)": 122880,
+    "write_bytes(B)": 15360,
+    "io_bytes(B)": 138240,
+    "mem_bw(GB/s)": 7.676,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 512, "num_experts": 64, "topk": 4, "index": 238}
+{
+    "latency(us)": 18.074,
+    "read_bytes(B)": 131072,
+    "write_bytes(B)": 16384,
+    "io_bytes(B)": 147456,
+    "mem_bw(GB/s)": 8.158,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 640, "num_experts": 64, "topk": 4, "index": 239}
+{
+    "latency(us)": 20.18,
+    "read_bytes(B)": 163840,
+    "write_bytes(B)": 20480,
+    "io_bytes(B)": 184320,
+    "mem_bw(GB/s)": 9.134,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 768, "num_experts": 64, "topk": 4, "index": 240}
+{
+    "latency(us)": 22.682,
+    "read_bytes(B)": 196608,
+    "write_bytes(B)": 24576,
+    "io_bytes(B)": 221184,
+    "mem_bw(GB/s)": 9.751,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 896, "num_experts": 64, "topk": 4, "index": 241}
+{
+    "latency(us)": 23.878,
+    "read_bytes(B)": 229376,
+    "write_bytes(B)": 28672,
+    "io_bytes(B)": 258048,
+    "mem_bw(GB/s)": 10.807,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1024, "num_experts": 64, "topk": 4, "index": 242}
+{
+    "latency(us)": 26.804,
+    "read_bytes(B)": 262144,
+    "write_bytes(B)": 32768,
+    "io_bytes(B)": 294912,
+    "mem_bw(GB/s)": 11.002,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1152, "num_experts": 64, "topk": 4, "index": 243}
+{
+    "latency(us)": 28.786,
+    "read_bytes(B)": 294912,
+    "write_bytes(B)": 36864,
+    "io_bytes(B)": 331776,
+    "mem_bw(GB/s)": 11.525,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1280, "num_experts": 64, "topk": 4, "index": 244}
+{
+    "latency(us)": 32.465,
+    "read_bytes(B)": 327680,
+    "write_bytes(B)": 40960,
+    "io_bytes(B)": 368640,
+    "mem_bw(GB/s)": 11.355,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1408, "num_experts": 64, "topk": 4, "index": 245}
+{
+    "latency(us)": 33.885,
+    "read_bytes(B)": 360448,
+    "write_bytes(B)": 45056,
+    "io_bytes(B)": 405504,
+    "mem_bw(GB/s)": 11.967,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1536, "num_experts": 64, "topk": 4, "index": 246}
+{
+    "latency(us)": 35.843,
+    "read_bytes(B)": 393216,
+    "write_bytes(B)": 49152,
+    "io_bytes(B)": 442368,
+    "mem_bw(GB/s)": 12.342,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1664, "num_experts": 64, "topk": 4, "index": 247}
+{
+    "latency(us)": 38.642,
+    "read_bytes(B)": 425984,
+    "write_bytes(B)": 53248,
+    "io_bytes(B)": 479232,
+    "mem_bw(GB/s)": 12.402,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1792, "num_experts": 64, "topk": 4, "index": 248}
+{
+    "latency(us)": 41.092,
+    "read_bytes(B)": 458752,
+    "write_bytes(B)": 57344,
+    "io_bytes(B)": 516096,
+    "mem_bw(GB/s)": 12.559,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 1920, "num_experts": 64, "topk": 4, "index": 249}
+{
+    "latency(us)": 44.495,
+    "read_bytes(B)": 491520,
+    "write_bytes(B)": 61440,
+    "io_bytes(B)": 552960,
+    "mem_bw(GB/s)": 12.428,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2048, "num_experts": 64, "topk": 4, "index": 250}
+{
+    "latency(us)": 47.811,
+    "read_bytes(B)": 524288,
+    "write_bytes(B)": 65536,
+    "io_bytes(B)": 589824,
+    "mem_bw(GB/s)": 12.337,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2176, "num_experts": 64, "topk": 4, "index": 251}
+{
+    "latency(us)": 49.027,
+    "read_bytes(B)": 557056,
+    "write_bytes(B)": 69632,
+    "io_bytes(B)": 626688,
+    "mem_bw(GB/s)": 12.783,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2304, "num_experts": 64, "topk": 4, "index": 252}
+{
+    "latency(us)": 50.944,
+    "read_bytes(B)": 589824,
+    "write_bytes(B)": 73728,
+    "io_bytes(B)": 663552,
+    "mem_bw(GB/s)": 13.025,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2432, "num_experts": 64, "topk": 4, "index": 253}
+{
+    "latency(us)": 52.647,
+    "read_bytes(B)": 622592,
+    "write_bytes(B)": 77824,
+    "io_bytes(B)": 700416,
+    "mem_bw(GB/s)": 13.304,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2560, "num_experts": 64, "topk": 4, "index": 254}
+{
+    "latency(us)": 54.381,
+    "read_bytes(B)": 655360,
+    "write_bytes(B)": 81920,
+    "io_bytes(B)": 737280,
+    "mem_bw(GB/s)": 13.558,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2688, "num_experts": 64, "topk": 4, "index": 255}
+{
+    "latency(us)": 55.918,
+    "read_bytes(B)": 688128,
+    "write_bytes(B)": 86016,
+    "io_bytes(B)": 774144,
+    "mem_bw(GB/s)": 13.844,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2816, "num_experts": 64, "topk": 4, "index": 256}
+{
+    "latency(us)": 58.987,
+    "read_bytes(B)": 720896,
+    "write_bytes(B)": 90112,
+    "io_bytes(B)": 811008,
+    "mem_bw(GB/s)": 13.749,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 2944, "num_experts": 64, "topk": 4, "index": 257}
+{
+    "latency(us)": 61.265,
+    "read_bytes(B)": 753664,
+    "write_bytes(B)": 94208,
+    "io_bytes(B)": 847872,
+    "mem_bw(GB/s)": 13.84,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3072, "num_experts": 64, "topk": 4, "index": 258}
+{
+    "latency(us)": 62.604,
+    "read_bytes(B)": 786432,
+    "write_bytes(B)": 98304,
+    "io_bytes(B)": 884736,
+    "mem_bw(GB/s)": 14.132,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3200, "num_experts": 64, "topk": 4, "index": 259}
+{
+    "latency(us)": 65.857,
+    "read_bytes(B)": 819200,
+    "write_bytes(B)": 102400,
+    "io_bytes(B)": 921600,
+    "mem_bw(GB/s)": 13.994,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3328, "num_experts": 64, "topk": 4, "index": 260}
+{
+    "latency(us)": 67.678,
+    "read_bytes(B)": 851968,
+    "write_bytes(B)": 106496,
+    "io_bytes(B)": 958464,
+    "mem_bw(GB/s)": 14.162,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3456, "num_experts": 64, "topk": 4, "index": 261}
+{
+    "latency(us)": 69.962,
+    "read_bytes(B)": 884736,
+    "write_bytes(B)": 110592,
+    "io_bytes(B)": 995328,
+    "mem_bw(GB/s)": 14.227,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3584, "num_experts": 64, "topk": 4, "index": 262}
+{
+    "latency(us)": 71.525,
+    "read_bytes(B)": 917504,
+    "write_bytes(B)": 114688,
+    "io_bytes(B)": 1032192,
+    "mem_bw(GB/s)": 14.431,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3712, "num_experts": 64, "topk": 4, "index": 263}
+{
+    "latency(us)": 74.68,
+    "read_bytes(B)": 950272,
+    "write_bytes(B)": 118784,
+    "io_bytes(B)": 1069056,
+    "mem_bw(GB/s)": 14.315,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3840, "num_experts": 64, "topk": 4, "index": 264}
+{
+    "latency(us)": 76.583,
+    "read_bytes(B)": 983040,
+    "write_bytes(B)": 122880,
+    "io_bytes(B)": 1105920,
+    "mem_bw(GB/s)": 14.441,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 3968, "num_experts": 64, "topk": 4, "index": 265}
+{
+    "latency(us)": 78.747,
+    "read_bytes(B)": 1015808,
+    "write_bytes(B)": 126976,
+    "io_bytes(B)": 1142784,
+    "mem_bw(GB/s)": 14.512,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 4096, "num_experts": 64, "topk": 4, "index": 266}
+{
+    "latency(us)": 81.265,
+    "read_bytes(B)": 1048576,
+    "write_bytes(B)": 131072,
+    "io_bytes(B)": 1179648,
+    "mem_bw(GB/s)": 14.516,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 6144, "num_experts": 64, "topk": 4, "index": 267}
+{
+    "latency(us)": 116.579,
+    "read_bytes(B)": 1572864,
+    "write_bytes(B)": 196608,
+    "io_bytes(B)": 1769472,
+    "mem_bw(GB/s)": 15.178,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 8192, "num_experts": 64, "topk": 4, "index": 268}
+{
+    "latency(us)": 153.811,
+    "read_bytes(B)": 2097152,
+    "write_bytes(B)": 262144,
+    "io_bytes(B)": 2359296,
+    "mem_bw(GB/s)": 15.339,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 10240, "num_experts": 64, "topk": 4, "index": 269}
+{
+    "latency(us)": 189.012,
+    "read_bytes(B)": 2621440,
+    "write_bytes(B)": 327680,
+    "io_bytes(B)": 2949120,
+    "mem_bw(GB/s)": 15.603,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 12288, "num_experts": 64, "topk": 4, "index": 270}
+{
+    "latency(us)": 225.617,
+    "read_bytes(B)": 3145728,
+    "write_bytes(B)": 393216,
+    "io_bytes(B)": 3538944,
+    "mem_bw(GB/s)": 15.686,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 14336, "num_experts": 64, "topk": 4, "index": 271}
+{
+    "latency(us)": 260.362,
+    "read_bytes(B)": 3670016,
+    "write_bytes(B)": 458752,
+    "io_bytes(B)": 4128768,
+    "mem_bw(GB/s)": 15.858,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 16384, "num_experts": 64, "topk": 4, "index": 272}
+{
+    "latency(us)": 296.697,
+    "read_bytes(B)": 4194304,
+    "write_bytes(B)": 524288,
+    "io_bytes(B)": 4718592,
+    "mem_bw(GB/s)": 15.904,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 18432, "num_experts": 64, "topk": 4, "index": 273}
+{
+    "latency(us)": 332.743,
+    "read_bytes(B)": 4718592,
+    "write_bytes(B)": 589824,
+    "io_bytes(B)": 5308416,
+    "mem_bw(GB/s)": 15.953,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 20480, "num_experts": 64, "topk": 4, "index": 274}
+{
+    "latency(us)": 367.569,
+    "read_bytes(B)": 5242880,
+    "write_bytes(B)": 655360,
+    "io_bytes(B)": 5898240,
+    "mem_bw(GB/s)": 16.047,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 22528, "num_experts": 64, "topk": 4, "index": 275}
+{
+    "latency(us)": 404.717,
+    "read_bytes(B)": 5767168,
+    "write_bytes(B)": 720896,
+    "io_bytes(B)": 6488064,
+    "mem_bw(GB/s)": 16.031,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 24576, "num_experts": 64, "topk": 4, "index": 276}
+{
+    "latency(us)": 439.378,
+    "read_bytes(B)": 6291456,
+    "write_bytes(B)": 786432,
+    "io_bytes(B)": 7077888,
+    "mem_bw(GB/s)": 16.109,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 26624, "num_experts": 64, "topk": 4, "index": 277}
+{
+    "latency(us)": 477.212,
+    "read_bytes(B)": 6815744,
+    "write_bytes(B)": 851968,
+    "io_bytes(B)": 7667712,
+    "mem_bw(GB/s)": 16.068,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 28672, "num_experts": 64, "topk": 4, "index": 278}
+{
+    "latency(us)": 510.478,
+    "read_bytes(B)": 7340032,
+    "write_bytes(B)": 917504,
+    "io_bytes(B)": 8257536,
+    "mem_bw(GB/s)": 16.176,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+moe_softmax_topk	torch
+{"arg_type": "llm", "dtype": "float32", "compute_mode": "post-softmax", "hidden_size": 4096, "sp_size": 1, "num_tokens": 32768, "num_experts": 64, "topk": 4, "index": 279}
+{
+    "latency(us)": 583.086,
+    "read_bytes(B)": 8388608,
+    "write_bytes(B)": 1048576,
+    "io_bytes(B)": 9437184,
+    "mem_bw(GB/s)": 16.185,
+    "calc_flops": 0,
+    "calc_flops_power(tflops)": 0.0,
+    "calc_mem_ratio": 0.0
+}
+
+current process id: 36905
+start subprocesses: [36943]
