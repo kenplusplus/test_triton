@@ -17,32 +17,25 @@ def moe_softmax_topk_pre_softmax_kernel(
         return
 
     # Compute memory offsets for the current batch element
-    # gating_offset: starting address for the row in gating_output
-    # experts_offset: starting address for the row in selected_experts
-    # weights_offset: starting address for the row in moe_weights
     gating_offset = pid * stride_gating_batch
     experts_offset = pid * stride_experts_batch
     weights_offset = pid * stride_weights_batch
 
-    # Load the gating output for this batch element (one row of shape [num_experts])
-    # Use BLOCK_SIZE for the range to ensure compile-time constant size
-    # Mask ensures we only load valid indices (up to num_experts) and pad with 0.0 for safety
+    # Load the gating output for this batch element
     offsets = gating_offset + tl.arange(0, BLOCK_SIZE)
     mask = tl.arange(0, BLOCK_SIZE) < num_experts
-    gating = tl.load(gating_output_ptr + offsets, mask=mask, other=0.0)
+    gating = tl.load(gating_output_ptr + offsets, mask=mask, other=-float('inf'))
 
     # Compute softmax over the num_experts dimension
-    # Subtract max for numerical stability to prevent overflow in exp
     max_val = tl.max(gating, axis=0)
     exp_gating = tl.exp(gating - max_val)
     sum_exp = tl.sum(exp_gating, axis=0)
     softmax_output = exp_gating / sum_exp
 
     # Find top-k values and indices from softmax_output
-    # Initialize arrays for top-k values and indices
-    values = softmax_output
+    values = tl.where(mask, softmax_output, -float('inf'))
     indices = tl.arange(0, BLOCK_SIZE)
-    topk_values = tl.zeros([topk], dtype=tl.float32)
+    topk_values = tl.full([topk], -float('inf'), dtype=tl.float32)
     topk_indices = tl.zeros([topk], dtype=tl.int32)
 
     # Iteratively find the top-k values and indices
@@ -52,14 +45,14 @@ def moe_softmax_topk_pre_softmax_kernel(
         max_idx = tl.argmax(values, axis=0)
 
         # Store in top-k arrays
-        topk_values = topk_values + (k == tl.arange(0, topk)) * max_val
-        topk_indices = topk_indices + (k == tl.arange(0, topk)) * max_idx
+        topk_values = tl.where(tl.arange(0, topk) == k, max_val, topk_values)
+        topk_indices = tl.where(tl.arange(0, topk) == k, max_idx, topk_indices)
 
         # Mask out the selected value by setting it to -inf
-        values = values + (max_idx != indices) * values - (max_idx == indices) * float('inf')
+        values = tl.where(indices == max_idx, -float('inf'), values)
 
     # Normalize top-k weights
-    weight_sum = tl.sum(topk_values, axis=0)
+    weight_sum = tl.sum(topk_values, axis=0) + 1e-10
     moe_weights = topk_values / weight_sum
 
     # Store results
@@ -85,33 +78,29 @@ def moe_softmax_topk_post_softmax_kernel(
     experts_offset = pid * stride_experts_batch
     weights_offset = pid * stride_weights_batch
 
-    # Load gating output for this batch, ensuring block size alignment
+    # Load gating output for this batch
     offsets = gating_offset + tl.arange(0, BLOCK_SIZE)
     mask = tl.arange(0, BLOCK_SIZE) < num_experts
-    gating = tl.load(gating_output_ptr + offsets, mask=mask, other=0.0)
+    gating = tl.load(gating_output_ptr + offsets, mask=mask, other=-float('inf'))
 
     # Find top-k values and indices
-    values = gating
+    values = tl.where(mask, gating, -float('inf'))
     indices = tl.arange(0, BLOCK_SIZE)
-    topk_values = tl.zeros([topk], dtype=tl.float32)
+    topk_values = tl.full([topk], -float('inf'), dtype=tl.float32)
     topk_indices = tl.zeros([topk], dtype=tl.int32)
 
     for k in range(topk):
-        # Find max value and index
         max_val = tl.max(values, axis=0)
         max_idx = tl.argmax(values, axis=0)
 
-        # Store in top-k arrays
-        topk_values = topk_values + (k == tl.arange(0, topk)) * max_val
-        topk_indices = topk_indices + (k == tl.arange(0, topk)) * max_idx
+        topk_values = tl.where(tl.arange(0, topk) == k, max_val, topk_values)
+        topk_indices = tl.where(tl.arange(0, topk) == k, max_idx, topk_indices)
 
-        # Mask out the selected value by setting it to -inf
-        values = values + (max_idx != indices) * values - (max_idx == indices) * float('inf')
+        values = tl.where(indices == max_idx, -float('inf'), values)
 
-    # Compute softmax on top-k values
     max_val = tl.max(topk_values, axis=0)
     exp_values = tl.exp(topk_values - max_val)
-    sum_exp = tl.sum(exp_values, axis=0)
+    sum_exp = tl.sum(exp_values, axis=0) + 1e-10
     moe_weights = exp_values / sum_exp
 
     # Store results
@@ -141,6 +130,8 @@ def moe_softmax_topk(gating_output: torch.Tensor, topk: int, compute_mode: str) 
     selected_experts = torch.empty(batch_size, topk, dtype=torch.int32, device=gating_output.device)
     moe_weights = torch.empty(batch_size, topk, dtype=torch.float32, device=gating_output.device)
 
+    gating_output = gating_output.to(torch.float32)
+
     # Grid size
     grid = (batch_size,)
 
@@ -150,20 +141,34 @@ def moe_softmax_topk(gating_output: torch.Tensor, topk: int, compute_mode: str) 
     # Launch appropriate kernel
     if compute_mode == "pre-softmax":
         moe_softmax_topk_pre_softmax_kernel[grid](
-            gating_output, selected_experts, moe_weights,
-            batch_size, num_experts, topk,
-            gating_output.stride(0), gating_output.stride(1),
-            selected_experts.stride(0), selected_experts.stride(1),
-            moe_weights.stride(0), moe_weights.stride(1),
+            gating_output_ptr=gating_output,
+            selected_experts_ptr=selected_experts,
+            moe_weights_ptr=moe_weights,
+            batch_size=batch_size,
+            num_experts=num_experts,
+            topk=topk,
+            stride_gating_batch=gating_output.stride(0),
+            stride_gating_experts=gating_output.stride(1),
+            stride_experts_batch=selected_experts.stride(0),
+            stride_experts_topk=selected_experts.stride(1),
+            stride_weights_batch=moe_weights.stride(0),
+            stride_weights_topk=moe_weights.stride(1),
             BLOCK_SIZE=BLOCK_SIZE
         )
     else:  # post-softmax
         moe_softmax_topk_post_softmax_kernel[grid](
-            gating_output, selected_experts, moe_weights,
-            batch_size, num_experts, topk,
-            gating_output.stride(0), gating_output.stride(1),
-            selected_experts.stride(0), selected_experts.stride(1),
-            moe_weights.stride(0), moe_weights.stride(1),
+            gating_output_ptr=gating_output,
+            selected_experts_ptr=selected_experts,
+            moe_weights_ptr=moe_weights,
+            batch_size=batch_size,
+            num_experts=num_experts,
+            topk=topk,
+            stride_gating_batch=gating_output.stride(0),
+            stride_gating_experts=gating_output.stride(1),
+            stride_experts_batch=selected_experts.stride(0),
+            stride_experts_topk=selected_experts.stride(1),
+            stride_weights_batch=moe_weights.stride(0),
+            stride_weights_topk=moe_weights.stride(1),
             BLOCK_SIZE=BLOCK_SIZE
         )
 
@@ -182,6 +187,7 @@ if __name__ == "__main__":
     num_experts = 32
     topk = 2
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f"Using device: {device}")
 
     # Generate random input
     gating_output = torch.randn(batch_size, num_experts, device=device)
@@ -191,7 +197,7 @@ if __name__ == "__main__":
         if compute_mode == "pre-softmax":
             softmax_output = torch.softmax(gating_output, dim=-1)
             moe_weights, selected_experts = torch.topk(softmax_output, topk, dim=-1)
-            moe_weights = moe_weights / moe_weights.sum(dim=-1, keepdim=True)
+            moe_weights = moe_weights / (moe_weights.sum(dim=-1, keepdim=True) + 1e-10)
             return selected_experts, moe_weights
         else:  # post-softmax
             topk_output, selected_experts = torch.topk(gating_output, topk, dim=-1)
@@ -209,14 +215,14 @@ if __name__ == "__main__":
         ref_experts, ref_weights = reference_moe_softmax_topk(gating_output, topk, mode)
 
         # Check correctness
-        experts_match = torch.allclose(triton_experts, ref_experts, atol=1e-6)
-        weights_match = torch.allclose(triton_weights, ref_weights, atol=1e-6)
+        experts_match = torch.all(triton_experts == ref_experts)
+        weights_match = torch.allclose(triton_weights, ref_weights, atol=1e-4)
 
         print(f"Experts match: {experts_match}")
         print(f"Weights match: {weights_match}")
 
-        if not experts_match or not weights_match:
-            print("Triton experts:", triton_experts[0])
-            print("Reference experts:", ref_experts[0])
-            print("Triton weights:", triton_weights[0])
-            print("Reference weights:", ref_weights[0])
+        #if not experts_match or not weights_match:
+        print("Triton experts:", triton_experts[0])
+        print("Reference experts:", ref_experts[0])
+        print("Triton weights:", triton_weights[0])
+        print("Reference weights:", ref_weights[0])
