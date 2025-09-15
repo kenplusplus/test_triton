@@ -96,7 +96,7 @@ def moe_softmax_topk_pre_softmax_kernel(
             values = tl.where(indices == max_idx, float('-inf'), values)
 
     # Normalize top-k weights to sum to 1
-    weight_sum = tl.sum(topk_values, axis=0) + 1e-10  # Add epsilon to prevent division by zero
+    weight_sum = tl.sum(topk_values, axis=0)
     moe_weights = topk_values / weight_sum
 
     # Store results to output tensors
@@ -154,7 +154,7 @@ def moe_softmax_topk_post_softmax_kernel(
     # Compute softmax on the selected top-k values
     max_val = tl.max(topk_values, axis=0)  # For numerical stability
     exp_values = tl.exp(topk_values - max_val)
-    sum_exp = tl.sum(exp_values, axis=0) + 1e-10  # Prevent division by zero
+    sum_exp = tl.sum(exp_values, axis=0)
     moe_weights = exp_values / sum_exp
 
     # Store results to output tensors
@@ -240,7 +240,7 @@ if __name__ == "__main__":
             softmax_output = torch.softmax(gating_output, dim=-1)
             moe_weights, selected_experts = torch.topk(softmax_output, topk, dim=-1)
             # Normalize the selected weights
-            moe_weights = moe_weights / (moe_weights.sum(dim=-1, keepdim=True) + 1e-10)
+            moe_weights = moe_weights / moe_weights.sum(dim=-1, keepdim=True)
             return selected_experts, moe_weights
         else:  # post-softmax
             # Select top-k first, then apply softmax

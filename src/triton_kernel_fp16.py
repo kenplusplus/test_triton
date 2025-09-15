@@ -31,7 +31,7 @@ def moe_softmax_topk_pre_softmax_kernel(
     gating_fp32 = gating.to(tl.float32)
     max_val = tl.max(gating_fp32, axis=0)
     exp_gating = tl.exp(gating_fp32 - max_val)
-    sum_exp = tl.sum(exp_gating, axis=0) + 1e-6  # Increased epsilon for FP16 stability
+    sum_exp = tl.sum(exp_gating, axis=0)
     softmax_output = exp_gating / sum_exp
 
     # Find top-k values and indices from softmax_output
@@ -49,7 +49,7 @@ def moe_softmax_topk_pre_softmax_kernel(
         values = tl.where(indices == max_idx, -float('inf'), values)
 
     # Normalize top-k weights in FP32
-    weight_sum = tl.sum(topk_values, axis=0) + 1e-6  # Increased epsilon
+    weight_sum = tl.sum(topk_values, axis=0)
     moe_weights_fp32 = topk_values / weight_sum
 
     # Convert weights to FP16 for storage
@@ -100,7 +100,7 @@ def moe_softmax_topk_post_softmax_kernel(
     # Apply softmax to top-k values in FP32
     max_val = tl.max(topk_values, axis=0)
     exp_values = tl.exp(topk_values - max_val)
-    sum_exp = tl.sum(exp_values, axis=0) + 1e-6  # Increased epsilon
+    sum_exp = tl.sum(exp_values, axis=0)
     moe_weights_fp32 = exp_values / sum_exp
 
     # Convert weights to FP16 for storage
@@ -206,7 +206,7 @@ if __name__ == "__main__":
         if compute_mode == "pre-softmax":
             softmax_output = torch.softmax(gating_output, dim=-1)
             moe_weights, selected_experts = torch.topk(softmax_output, topk, dim=-1)
-            moe_weights = moe_weights / (moe_weights.sum(dim=-1, keepdim=True) + 1e-6)
+            moe_weights = moe_weights / moe_weights.sum(dim=-1, keepdim=True)
             return selected_experts, moe_weights
         else:  # post-softmax
             topk_output, selected_experts = torch.topk(gating_output, topk, dim=-1)
