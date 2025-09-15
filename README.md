@@ -36,7 +36,10 @@ python launch.py --task_dir workloads/mocked_model/ --task moe_softmax_topk_trit
 or
 
 ```
-./run.sh
+./run.sh -k torch
+./run.sh -k triton
+./run.sh -k triton_fp16
+./run.sh -k triton_tile
 ```
 
 ## Modifications
