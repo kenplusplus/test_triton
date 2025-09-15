@@ -197,7 +197,7 @@ if __name__ == "__main__":
         if compute_mode == "pre-softmax":
             softmax_output = torch.softmax(gating_output, dim=-1)
             moe_weights, selected_experts = torch.topk(softmax_output, topk, dim=-1)
-            moe_weights = moe_weights / (moe_weights.sum(dim=-1, keepdim=True) + 1e-10)
+            moe_weights = moe_weights / moe_weights.sum(dim=-1, keepdim=True)
             return selected_experts, moe_weights
         else:  # post-softmax
             topk_output, selected_experts = torch.topk(gating_output, topk, dim=-1)
