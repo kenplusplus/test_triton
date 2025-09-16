@@ -9,8 +9,15 @@ import torch
         triton.Config({'BLOCK_SIZE_M': 16, 'BLOCK_SIZE_N': 64}, num_warps=8),
         triton.Config({'BLOCK_SIZE_M': 128, 'BLOCK_SIZE_N': 8}, num_warps=8),
         triton.Config({'BLOCK_SIZE_M': 128, 'BLOCK_SIZE_N': 64}, num_warps=8),
+        triton.Config({'BLOCK_SIZE_M': 128, 'BLOCK_SIZE_N': 64}, num_warps=4),
         triton.Config({'BLOCK_SIZE_M': 256, 'BLOCK_SIZE_N': 64}, num_warps=8),
         triton.Config({'BLOCK_SIZE_M': 128, 'BLOCK_SIZE_N': 128}, num_warps=8),
+        triton.Config({'BLOCK_SIZE_M': 256, 'BLOCK_SIZE_N': 64}, num_warps=8),
+        triton.Config({'BLOCK_SIZE_M': 512, 'BLOCK_SIZE_N': 64}, num_warps=8),
+        triton.Config({'BLOCK_SIZE_M': 256, 'BLOCK_SIZE_N': 128}, num_warps=8),
+        triton.Config({'BLOCK_SIZE_M': 512, 'BLOCK_SIZE_N': 128}, num_warps=16),
+        triton.Config({'BLOCK_SIZE_M': 128, 'BLOCK_SIZE_N': 256}, num_warps=16),
+        triton.Config({'BLOCK_SIZE_M': 256, 'BLOCK_SIZE_N': 256}, num_warps=16),
     ],
     key=['num_scatter_tokens', 'hidden_size']
 )
@@ -28,31 +35,30 @@ def moe_gather_kernel(
 
     m_start = pid_m * BLOCK_SIZE_M
     n_start = pid_n * BLOCK_SIZE_N
-    m = m_start + tl.arange(0, BLOCK_SIZE_M)             # [BLOCK_SIZE_M]
-    n = n_start + tl.arange(0, BLOCK_SIZE_N)             # [BLOCK_SIZE_N]
+    m = m_start + tl.arange(0, BLOCK_SIZE_M)  # [BLOCK_SIZE_M]
+    n = n_start + tl.arange(0, BLOCK_SIZE_N)  # [BLOCK_SIZE_N]
 
     mask_m = m < num_scatter_tokens
     mask_n = n < hidden_size
-    mask_2d = mask_m[:, None] & mask_n[None, :]          # [BLOCK_SIZE_M, BLOCK_SIZE_N]
+    mask_2d = mask_m[:, None] & mask_n[None, :]  # [BLOCK_SIZE_M, BLOCK_SIZE_N]
 
-    # Load offsets from 1D offsets array; use sentinel -1 for OOB
-    offsets = tl.load(scatter_tokens_offset_ptr + m, mask=mask_m, other=-1)  # corrected
+    # Load offsets
+    offsets = tl.load(scatter_tokens_offset_ptr + m, mask=mask_m, other=-1)
     offsets_2d = offsets[:, None]  # [BLOCK_SIZE_M, 1]
 
-    # compute addresses for scatter_tokens: scatter_tokens[m, n]
+    # Early exit for invalid offsets
+    valid_offsets = (offsets_2d >= 0) & (offsets_2d < num_tokens)
+    final_mask = mask_2d & valid_offsets
+
+    # Compute scatter addresses and load data
     scatter_offsets = m[:, None] * stride_scatter_m + n[None, :] * stride_scatter_n
-    scatter_data = tl.load(scatter_tokens_ptr + scatter_offsets, mask=mask_2d, other=0.0)
+    scatter_data = tl.load(scatter_tokens_ptr + scatter_offsets, mask=final_mask, other=0.0)
 
-    # valid convergent indices: offsets must be >=0 and < num_tokens
-    valid_convergent = (offsets_2d >= 0) & (offsets_2d < num_tokens)
-    final_mask = mask_2d & valid_convergent
-
-    # convergent memory addresses
+    # Compute convergent addresses
     convergent_offsets = offsets_2d * stride_convergent_m + n[None, :] * stride_convergent_n
 
-    # promote to float32 for atomic add
-    data_fp32 = tl.cast(scatter_data, tl.float32)
-    tl.atomic_add(convergent_tokens_ptr + convergent_offsets, data_fp32, mask=final_mask)
+    # Use bfloat16 for atomic add
+    tl.atomic_add(convergent_tokens_ptr + convergent_offsets, scatter_data, mask=final_mask)
 
 
 def moe_gather_run(tensor_mapping):
@@ -69,11 +75,13 @@ def moe_gather_run(tensor_mapping):
     assert scatter_tokens_offset.shape[0] == num_scatter_tokens, "Offset size mismatch"
     assert hidden_size == hidden_size_out, "Hidden size mismatch"
     assert scatter_tokens.device == scatter_tokens_offset.device == convergent_tokens.device, "Device mismatch"
+    assert scatter_tokens.dtype == torch.bfloat16, "scatter_tokens must be bfloat16"
+    assert convergent_tokens.dtype == torch.bfloat16, "convergent_tokens must be bfloat16"
 
-    # Ensure dtypes and contiguous layout: accumulate in float32
+    # Ensure contiguous layout
     scatter_tokens = scatter_tokens.contiguous()
     scatter_tokens_offset = scatter_tokens_offset.contiguous()
-    convergent_tokens = convergent_tokens.to(torch.float32).contiguous()
+    convergent_tokens = convergent_tokens.contiguous()
 
     grid = lambda meta: (
         triton.cdiv(num_scatter_tokens, meta['BLOCK_SIZE_M']),
@@ -96,14 +104,14 @@ if __name__ == "__main__":
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("Device:", device)
 
-    # small sizes for quick validation
-    num_scatter_tokens = 128
-    num_tokens = 64
-    hidden_size = 32
+    # Test with parameters from the provided config
+    num_scatter_tokens = 32768  # Largest token count
+    num_tokens = 4096
+    hidden_size = 4096
 
-    scatter_tokens = torch.randn((num_scatter_tokens, hidden_size), device=device, dtype=torch.float32)
+    scatter_tokens = torch.randn((num_scatter_tokens, hidden_size), device=device, dtype=torch.bfloat16)
     scatter_tokens_offset = torch.randint(0, num_tokens, (num_scatter_tokens,), device=device, dtype=torch.int32)
-    convergent_tokens = torch.zeros((num_tokens, hidden_size), device=device, dtype=torch.float32)
+    convergent_tokens = torch.zeros((num_tokens, hidden_size), device=device, dtype=torch.bfloat16)
 
     mapping = {
         "scatter_tokens": scatter_tokens,
@@ -112,8 +120,9 @@ if __name__ == "__main__":
     }
 
     triton_out = moe_gather_run(mapping)
+    # Keep scatter_tokens in bfloat16 for index_add_ to avoid type mismatch
     ref = mapping["convergent_tokens"].clone().index_add_(0, mapping["scatter_tokens_offset"].to(torch.int64), mapping["scatter_tokens"])
-    is_close = torch.allclose(triton_out, ref, atol=1e-3, rtol=1e-3)
+    is_close = torch.allclose(triton_out, ref, atol=1e-2, rtol=1e-2)  # Relaxed tolerance for bfloat16
     print("Allclose:", is_close)
     if not is_close:
         diff = (triton_out - ref).abs()
