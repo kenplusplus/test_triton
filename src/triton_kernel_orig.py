@@ -2,6 +2,18 @@ import triton
 import triton.language as tl
 import torch
 
+@triton.autotune(
+    configs=[
+        triton.Config({'BLOCK_SIZE': 16}, num_warps=2),
+        triton.Config({'BLOCK_SIZE': 32}, num_warps=2),
+        triton.Config({'BLOCK_SIZE': 64}, num_warps=4),
+        triton.Config({'BLOCK_SIZE': 128}, num_warps=4),
+        triton.Config({'BLOCK_SIZE': 256}, num_warps=8),
+        triton.Config({'BLOCK_SIZE': 512}, num_warps=8),
+        triton.Config({'BLOCK_SIZE': 1024}, num_warps=16),
+    ],
+    key=['num_experts'],
+)
 @triton.jit
 def moe_softmax_topk_pre_softmax_kernel(
     gating_output_ptr, selected_experts_ptr, moe_weights_ptr,
@@ -59,6 +71,18 @@ def moe_softmax_topk_pre_softmax_kernel(
     tl.store(selected_experts_ptr + experts_offset + tl.arange(0, topk), topk_indices)
     tl.store(moe_weights_ptr + weights_offset + tl.arange(0, topk), moe_weights)
 
+@triton.autotune(
+    configs=[
+        triton.Config({'BLOCK_SIZE': 16}, num_warps=2),
+        triton.Config({'BLOCK_SIZE': 32}, num_warps=2),
+        triton.Config({'BLOCK_SIZE': 64}, num_warps=4),
+        triton.Config({'BLOCK_SIZE': 128}, num_warps=4),
+        triton.Config({'BLOCK_SIZE': 256}, num_warps=8),
+        triton.Config({'BLOCK_SIZE': 512}, num_warps=8),
+        triton.Config({'BLOCK_SIZE': 1024}, num_warps=16),
+    ],
+    key=['num_experts'],
+)
 @triton.jit
 def moe_softmax_topk_post_softmax_kernel(
     gating_output_ptr, selected_experts_ptr, moe_weights_ptr,
@@ -110,16 +134,6 @@ def moe_softmax_topk_post_softmax_kernel(
 def moe_softmax_topk(gating_output: torch.Tensor, topk: int, compute_mode: str) -> tuple[torch.Tensor, torch.Tensor]:
     """
     Performs MoE softmax and top-k selection in either pre-softmax or post-softmax mode.
-
-    Args:
-        gating_output (torch.Tensor): Input tensor of shape [batch_size, num_experts].
-        topk (int): Number of experts to select.
-        compute_mode (str): Either "pre-softmax" or "post-softmax".
-
-    Returns:
-        tuple: (selected_experts, moe_weights)
-            - selected_experts: Tensor of shape [batch_size, topk] with expert indices (dtype=torch.int64).
-            - moe_weights: Tensor of shape [batch_size, topk] with normalized weights (dtype=torch.float32).
     """
     assert gating_output.ndim == 2, "gating_output must be 2D"
     batch_size, num_experts = gating_output.shape
@@ -135,10 +149,6 @@ def moe_softmax_topk(gating_output: torch.Tensor, topk: int, compute_mode: str) 
     # Grid size
     grid = (batch_size,)
 
-    # Set BLOCK_SIZE to the next power of 2 greater than or equal to num_experts
-    BLOCK_SIZE = triton.next_power_of_2(num_experts)
-
-    # Launch appropriate kernel
     if compute_mode == "pre-softmax":
         moe_softmax_topk_pre_softmax_kernel[grid](
             gating_output_ptr=gating_output,
@@ -153,7 +163,6 @@ def moe_softmax_topk(gating_output: torch.Tensor, topk: int, compute_mode: str) 
             stride_experts_topk=selected_experts.stride(1),
             stride_weights_batch=moe_weights.stride(0),
             stride_weights_topk=moe_weights.stride(1),
-            BLOCK_SIZE=BLOCK_SIZE
         )
     else:  # post-softmax
         moe_softmax_topk_post_softmax_kernel[grid](
@@ -169,7 +178,6 @@ def moe_softmax_topk(gating_output: torch.Tensor, topk: int, compute_mode: str) 
             stride_experts_topk=selected_experts.stride(1),
             stride_weights_batch=moe_weights.stride(0),
             stride_weights_topk=moe_weights.stride(1),
-            BLOCK_SIZE=BLOCK_SIZE
         )
 
     # Cast selected_experts to torch.int64 to match PyTorch's topk output
@@ -221,7 +229,7 @@ if __name__ == "__main__":
         print(f"Experts match: {experts_match}")
         print(f"Weights match: {weights_match}")
 
-        #if not experts_match or not weights_match:
+        # Print sample results
         print("Triton experts:", triton_experts[0])
         print("Reference experts:", ref_experts[0])
         print("Triton weights:", triton_weights[0])
