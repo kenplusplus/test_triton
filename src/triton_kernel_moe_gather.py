@@ -4,22 +4,25 @@ import torch
 
 @triton.autotune(
     configs=[
-        triton.Config({'BLOCK_SIZE_M': 32, 'BLOCK_SIZE_N': 32}, num_warps=4),
-        triton.Config({'BLOCK_SIZE_M': 64, 'BLOCK_SIZE_N': 16}, num_warps=4),
-        triton.Config({'BLOCK_SIZE_M': 16, 'BLOCK_SIZE_N': 64}, num_warps=8),
-        triton.Config({'BLOCK_SIZE_M': 128, 'BLOCK_SIZE_N': 8}, num_warps=8),
+        # for 4096 hidden size
+        triton.Config({'BLOCK_SIZE_M': 64, 'BLOCK_SIZE_N': 64}, num_warps=4),
+        triton.Config({'BLOCK_SIZE_M': 128, 'BLOCK_SIZE_N': 32}, num_warps=4),
+        triton.Config({'BLOCK_SIZE_M': 32, 'BLOCK_SIZE_N': 128}, num_warps=4),
+        triton.Config({'BLOCK_SIZE_M': 256, 'BLOCK_SIZE_N': 16}, num_warps=4),
+        triton.Config({'BLOCK_SIZE_M': 16, 'BLOCK_SIZE_N': 256}, num_warps=4),
+
+        # for large size
         triton.Config({'BLOCK_SIZE_M': 128, 'BLOCK_SIZE_N': 64}, num_warps=8),
-        triton.Config({'BLOCK_SIZE_M': 128, 'BLOCK_SIZE_N': 64}, num_warps=4),
-        triton.Config({'BLOCK_SIZE_M': 256, 'BLOCK_SIZE_N': 64}, num_warps=8),
-        triton.Config({'BLOCK_SIZE_M': 128, 'BLOCK_SIZE_N': 128}, num_warps=8),
-        triton.Config({'BLOCK_SIZE_M': 256, 'BLOCK_SIZE_N': 64}, num_warps=8),
-        triton.Config({'BLOCK_SIZE_M': 512, 'BLOCK_SIZE_N': 64}, num_warps=8),
-        triton.Config({'BLOCK_SIZE_M': 256, 'BLOCK_SIZE_N': 128}, num_warps=8),
-        triton.Config({'BLOCK_SIZE_M': 512, 'BLOCK_SIZE_N': 128}, num_warps=16),
-        triton.Config({'BLOCK_SIZE_M': 128, 'BLOCK_SIZE_N': 256}, num_warps=16),
-        triton.Config({'BLOCK_SIZE_M': 256, 'BLOCK_SIZE_N': 256}, num_warps=16),
+        triton.Config({'BLOCK_SIZE_M': 64, 'BLOCK_SIZE_N': 128}, num_warps=8),
+        triton.Config({'BLOCK_SIZE_M': 256, 'BLOCK_SIZE_N': 32}, num_warps=8),
+        triton.Config({'BLOCK_SIZE_M': 32, 'BLOCK_SIZE_N': 256}, num_warps=8),
+
+        triton.Config({'BLOCK_SIZE_M': 512, 'BLOCK_SIZE_N': 16}, num_warps=8),
+        triton.Config({'BLOCK_SIZE_M': 16, 'BLOCK_SIZE_N': 512}, num_warps=8),
     ],
-    key=['num_scatter_tokens', 'hidden_size']
+    key=['num_scatter_tokens', 'hidden_size'],
+    warmup=10,
+    rep=100
 )
 @triton.jit
 def moe_gather_kernel(
@@ -50,18 +53,18 @@ def moe_gather_kernel(
     valid_offsets = (offsets_2d >= 0) & (offsets_2d < num_tokens)
     final_mask = mask_2d & valid_offsets
 
-    # Compute scatter addresses and load data
-    scatter_offsets = m[:, None] * stride_scatter_m + n[None, :] * stride_scatter_n
-    scatter_data = tl.load(scatter_tokens_ptr + scatter_offsets, mask=final_mask, other=0.0)
+    scatter_base = scatter_tokens_ptr + m[:, None] * stride_scatter_m
+    scatter_offsets = scatter_base + n[None, :] * stride_scatter_n
+    scatter_data = tl.load(scatter_offsets, mask=final_mask, other=0.0)
 
-    # Compute convergent addresses
-    convergent_offsets = offsets_2d * stride_convergent_m + n[None, :] * stride_convergent_n
+    convergent_base = convergent_tokens_ptr + offsets_2d * stride_convergent_m
+    convergent_offsets = convergent_base + n[None, :] * stride_convergent_n
 
-    # Use bfloat16 for atomic add
-    tl.atomic_add(convergent_tokens_ptr + convergent_offsets, scatter_data, mask=final_mask)
+    # Use atomic add with proper masking
+    tl.atomic_add(convergent_offsets, scatter_data, mask=final_mask)
 
 
-def moe_gather_run(tensor_mapping):
+def moe_gather_run(tensor_mapping, warmup=False):
     scatter_tokens = tensor_mapping["scatter_tokens"]
     scatter_tokens_offset = tensor_mapping["scatter_tokens_offset"]
     convergent_tokens = tensor_mapping["convergent_tokens"]
@@ -88,6 +91,27 @@ def moe_gather_run(tensor_mapping):
         triton.cdiv(hidden_size, meta['BLOCK_SIZE_N'])
     )
 
+    if warmup:
+        print("Performing warmup...")
+
+        warmup_scatter = scatter_tokens[:128, :128]
+        warmup_offset = scatter_tokens_offset[:128]
+        warmup_convergent = convergent_tokens[:64, :128]
+
+        warmup_grid = lambda meta: (
+            triton.cdiv(128, meta['BLOCK_SIZE_M']),
+            triton.cdiv(128, meta['BLOCK_SIZE_N'])
+        )
+
+        moe_gather_kernel[warmup_grid](
+            warmup_scatter, warmup_offset, warmup_convergent,
+            128, 64, 128,
+            warmup_scatter.stride(0), warmup_scatter.stride(1),
+            warmup_offset.stride(0),
+            warmup_convergent.stride(0), warmup_convergent.stride(1)
+        )
+        torch.cuda.synchronize()
+
     moe_gather_kernel[grid](
         scatter_tokens, scatter_tokens_offset, convergent_tokens,
         num_scatter_tokens, num_tokens, hidden_size,
@@ -98,35 +122,70 @@ def moe_gather_run(tensor_mapping):
 
     return convergent_tokens
 
+def benchmark_moe_gather(tensor_mapping, num_runs=10):
+    """性能基准测试"""
+    times = []
+
+    # 预热
+    moe_gather_run(tensor_mapping, warmup=True)
+    torch.cuda.synchronize()
+
+    for i in range(num_runs):
+        convergent_copy = torch.zeros_like(tensor_mapping["convergent_tokens"])
+        run_mapping = {
+            "scatter_tokens": tensor_mapping["scatter_tokens"],
+            "scatter_tokens_offset": tensor_mapping["scatter_tokens_offset"],
+            "convergent_tokens": convergent_copy
+        }
+
+        start = torch.cuda.Event(enable_timing=True)
+        end = torch.cuda.Event(enable_timing=True)
+
+        start.record()
+        moe_gather_run(run_mapping, warmup=True)
+        end.record()
+        torch.cuda.synchronize()
+
+        times.append(start.elapsed_time(end))
+
+    return times
 
 if __name__ == "__main__":
     torch.manual_seed(0)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("Device:", device)
 
-    # Test with parameters from the provided config
-    num_scatter_tokens = 32768  # Largest token count
-    num_tokens = 4096
-    hidden_size = 4096
+    # 测试多种尺寸
+    test_cases = [
+        (32768, 4096, 4096),
+        (16384, 2048, 4096),
+        (8192, 1024, 2048),
+    ]
 
-    scatter_tokens = torch.randn((num_scatter_tokens, hidden_size), device=device, dtype=torch.bfloat16)
-    scatter_tokens_offset = torch.randint(0, num_tokens, (num_scatter_tokens,), device=device, dtype=torch.int32)
-    convergent_tokens = torch.zeros((num_tokens, hidden_size), device=device, dtype=torch.bfloat16)
+    for num_scatter_tokens, num_tokens, hidden_size in test_cases:
+        print(f"\nTesting: {num_scatter_tokens}x{hidden_size} -> {num_tokens}x{hidden_size}")
 
-    mapping = {
-        "scatter_tokens": scatter_tokens,
-        "scatter_tokens_offset": scatter_tokens_offset,
-        "convergent_tokens": convergent_tokens
-    }
+        scatter_tokens = torch.randn((num_scatter_tokens, hidden_size), device=device, dtype=torch.bfloat16)
+        scatter_tokens_offset = torch.randint(0, num_tokens, (num_scatter_tokens,), device=device, dtype=torch.int32)
+        convergent_tokens = torch.zeros((num_tokens, hidden_size), device=device, dtype=torch.bfloat16)
 
-    triton_out = moe_gather_run(mapping)
-    # Keep scatter_tokens in bfloat16 for index_add_ to avoid type mismatch
-    ref = mapping["convergent_tokens"].clone().index_add_(0, mapping["scatter_tokens_offset"].to(torch.int64), mapping["scatter_tokens"])
-    is_close = torch.allclose(triton_out, ref, atol=1e-2, rtol=1e-2)  # Relaxed tolerance for bfloat16
-    print("Allclose:", is_close)
-    if not is_close:
-        diff = (triton_out - ref).abs()
-        max_diff = diff.max().item()
-        print("Max diff:", max_diff)
-        print("triton_out[0:5]:", triton_out[:5])
-        print("ref[0:5]:", ref[:5])
+        mapping = {
+            "scatter_tokens": scatter_tokens,
+            "scatter_tokens_offset": scatter_tokens_offset,
+            "convergent_tokens": convergent_tokens
+        }
+
+        # 测试正确性
+        triton_out = moe_gather_run(mapping, warmup=False)
+        ref = convergent_tokens.clone().index_add_(0, scatter_tokens_offset.to(torch.int64), scatter_tokens)
+
+        is_close = torch.allclose(triton_out, ref, atol=1e-2, rtol=1e-2)
+        print(f"Correctness: {is_close}")
+
+        if not is_close:
+            diff = (triton_out - ref).abs()
+            print(f"Max diff: {diff.max().item():.6f}")
+
+        # 性能测试
+        times = benchmark_moe_gather(mapping, num_runs=5)
+        print(f"Performance: {sum(times)/len(times):.3f} ms (avg), {min(times):.3f} ms (min)")
